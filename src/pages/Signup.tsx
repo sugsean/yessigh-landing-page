@@ -7,6 +7,13 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useToast } from "@/components/ui/use-toast";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/lib/supabase";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const Signup = () => {
   const [userType, setUserType] = useState<string>("");
@@ -16,6 +23,7 @@ const Signup = () => {
     school: "",
     position: "",
     childrenCount: "1",
+    country: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
@@ -36,6 +44,7 @@ const Signup = () => {
             school: formData.school,
             position: userType === 'teacher' ? formData.position : null,
             children_count: userType === 'parent' ? parseInt(formData.childrenCount) : null,
+            country: formData.country,
             created_at: new Date().toISOString(),
           }
         ]);
@@ -47,8 +56,10 @@ const Signup = () => {
         description: "Thank you for joining our pioneer program. We'll be in touch soon!",
       });
       
-      // Redirect after successful submission
-      navigate("/");
+      // Redirect after successful submission with a slight delay to show the toast
+      setTimeout(() => {
+        navigate("/features/welcome");
+      }, 2000);
     } catch (error) {
       toast({
         title: "Registration Failed",
@@ -68,6 +79,14 @@ const Signup = () => {
         transition={{ duration: 0.5 }}
         className="container max-w-2xl mx-auto px-4"
       >
+        <div className="text-center mb-8">
+          <img 
+            src="/lovable-uploads/d21ed953-3c6f-49a6-b6cf-6f61a335c827.png" 
+            alt="YesSigh Logo" 
+            className="mx-auto h-20 mb-6"
+          />
+        </div>
+
         <div className="bg-white rounded-2xl shadow-xl p-8">
           <h1 className="text-3xl font-bold text-center mb-2">Join Our Pioneer Program</h1>
           <p className="text-gray-600 text-center mb-8">
@@ -121,6 +140,29 @@ const Signup = () => {
                   placeholder="Enter your email"
                   required
                 />
+              </div>
+
+              <div>
+                <Label htmlFor="country">Country</Label>
+                <Select
+                  value={formData.country}
+                  onValueChange={(value) =>
+                    setFormData({ ...formData, country: value })
+                  }
+                  required
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select your country" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="uk">United Kingdom</SelectItem>
+                    <SelectItem value="us">United States</SelectItem>
+                    <SelectItem value="ca">Canada</SelectItem>
+                    <SelectItem value="au">Australia</SelectItem>
+                    <SelectItem value="nz">New Zealand</SelectItem>
+                    {/* Add more countries as needed */}
+                  </SelectContent>
+                </Select>
               </div>
 
               <div>
