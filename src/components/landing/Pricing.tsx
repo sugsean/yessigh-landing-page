@@ -1,11 +1,13 @@
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const plans = [
   {
     name: "Teachers",
-    price: "29",
+    priceUSD: 29,
+    priceGBP: 23,
     features: [
       "Personal wellbeing dashboard",
       "Real-time student monitoring",
@@ -16,7 +18,8 @@ const plans = [
   },
   {
     name: "Parents",
-    price: "19",
+    priceUSD: 19,
+    priceGBP: 15,
     features: [
       "Child wellbeing tracking",
       "Direct teacher communication",
@@ -39,6 +42,21 @@ const plans = [
 ];
 
 export const Pricing = () => {
+  const [isUK, setIsUK] = useState(false);
+
+  useEffect(() => {
+    // Check if user's locale is UK
+    const userLocale = navigator.language || navigator.languages[0];
+    setIsUK(userLocale.includes('GB') || userLocale.includes('UK'));
+  }, []);
+
+  const formatPrice = (plan: typeof plans[0]) => {
+    if ('price' in plan) return plan.price;
+    return isUK 
+      ? `£${plan.priceGBP}`
+      : `$${plan.priceUSD}`;
+  };
+
   return (
     <section className="py-24 bg-gradient-to-b from-custom-mint/20 via-custom-yellow/10 to-custom-purple/20">
       <div className="container mx-auto px-4">
@@ -74,7 +92,7 @@ export const Pricing = () => {
                     <span className="text-3xl font-bold">Enterprise</span>
                   ) : (
                     <>
-                      <span className="text-4xl font-bold">${plan.price}</span>
+                      <span className="text-4xl font-bold">{formatPrice(plan)}</span>
                       <span className="text-gray-600">/month</span>
                     </>
                   )}
