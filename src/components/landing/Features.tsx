@@ -6,31 +6,37 @@ const features = [
     icon: Brain,
     title: "Real-Time Wellbeing Monitoring",
     description: "Track and respond to student and teacher wellbeing in real-time with our advanced monitoring system.",
+    color: "custom-pink"
   },
   {
     icon: Users,
     title: "Personalized Support",
     description: "Tailored resources and interventions based on individual needs and circumstances.",
+    color: "custom-purple"
   },
   {
     icon: Clock,
     title: "Instant Response",
     description: "Quick alerts and notifications ensure immediate attention to urgent wellbeing concerns.",
+    color: "custom-blue"
   },
   {
     icon: LineChart,
     title: "Data-Driven Insights",
     description: "Make informed decisions with comprehensive analytics and trending patterns.",
+    color: "custom-mint"
   },
   {
     icon: Shield,
     title: "Privacy First",
     description: "Enterprise-grade security ensuring all sensitive information remains protected.",
+    color: "custom-yellow"
   },
   {
     icon: MessageCircle,
     title: "Seamless Communication",
     description: "Foster better collaboration between students, teachers, and administrators.",
+    color: "custom-pink"
   },
 ];
 
@@ -58,7 +64,7 @@ export const Features = () => {
             Comprehensive Features for Complete Wellbeing
           </motion.h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Everything you need to create a supportive and thriving educational environment
+            Discover how our platform transforms educational environments
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -70,10 +76,10 @@ export const Features = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ scale: 1.02 }}
-              className="p-6 rounded-2xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+              className={`p-6 rounded-2xl bg-${feature.color}/5 shadow-lg hover:shadow-xl transition-all duration-300 border border-${feature.color}/20`}
             >
-              <feature.icon className="w-12 h-12 text-custom-blue mb-4" />
-              <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+              <feature.icon className={`w-12 h-12 text-${feature.color} mb-4`} />
+              <h3 className={`text-xl font-semibold mb-2 text-${feature.color}`}>{feature.title}</h3>
               <p className="text-gray-600">{feature.description}</p>
             </motion.div>
           ))}

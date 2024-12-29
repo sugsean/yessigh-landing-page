@@ -48,10 +48,10 @@ export const ProblemSolution = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-custom-pink via-custom-purple to-custom-blue bg-clip-text text-transparent">
-            Addressing Critical Challenges
+            Transform Challenges into Opportunities
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-            Transform challenges into opportunities with YesSigh's comprehensive solutions
+            See how YesSigh addresses your most pressing concerns
           </p>
         </motion.div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -62,16 +62,16 @@ export const ProblemSolution = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: item.delay }}
-              className="group cursor-pointer"
+              className="group"
             >
-              <div className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl border border-gray-100 h-full">
+              <div className={`bg-${item.color}/5 rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl border border-${item.color}/20 h-full`}>
                 <div className="relative h-64">
                   <img
                     src={item.image}
                     alt={item.problem}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50" />
+                  <div className={`absolute inset-0 bg-gradient-to-b from-transparent to-${item.color}/50`} />
                   <div className="absolute bottom-4 left-4 right-4">
                     <h3 className="text-xl font-semibold mb-2 text-white">
                       {item.problem}
@@ -82,19 +82,18 @@ export const ProblemSolution = () => {
                   <div className="flex items-start gap-3 mb-4">
                     <item.icon className={`w-6 h-6 text-${item.color} flex-shrink-0 mt-1`} />
                     <div>
-                      <p className="font-semibold text-gray-800 mb-2">{item.solution}</p>
+                      <p className={`font-semibold text-${item.color} mb-2`}>{item.solution}</p>
                       <p className="text-gray-600">{item.description}</p>
                     </div>
                   </div>
                   <Link to={`/features/${item.problem.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>
                     <Button
-                      className={`w-full bg-${item.color} group relative overflow-hidden`}
+                      className={`w-full bg-${item.color} hover:bg-${item.color}/90 text-white group relative overflow-hidden`}
                     >
                       <span className="relative z-10 flex items-center justify-center gap-2">
-                        See it in action
-                        <ArrowRight className="w-4 h-4" />
+                        Explore Solution
+                        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                       </span>
-                      <div className={`absolute inset-0 bg-${item.color} transform transition-transform duration-300 group-hover:scale-x-110`} />
                     </Button>
                   </Link>
                 </div>
