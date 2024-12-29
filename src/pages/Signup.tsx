@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useToast } from "@/components/ui/use-toast";
 import { useNavigate } from "react-router-dom";
+import { supabase } from "@/lib/supabase";
 
 const Signup = () => {
   const [userType, setUserType] = useState<string>("");
@@ -15,18 +16,46 @@ const Signup = () => {
     school: "",
     position: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically handle the signup process
-    toast({
-      title: "Registration Submitted!",
-      description: "Thank you for joining our pioneer program. We'll be in touch soon!",
-    });
-    // Redirect to a thank you page or dashboard
-    navigate("/thank-you");
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase
+        .from('signups')
+        .insert([
+          {
+            user_type: userType,
+            name: formData.name,
+            email: formData.email,
+            school: formData.school,
+            position: userType === 'teacher' ? formData.position : null,
+            created_at: new Date().toISOString(),
+          }
+        ]);
+
+      if (error) throw error;
+
+      toast({
+        title: "Registration Successful!",
+        description: "Thank you for joining our pioneer program. We'll be in touch soon!",
+      });
+      
+      // Redirect after successful submission
+      navigate("/");
+    } catch (error) {
+      toast({
+        title: "Registration Failed",
+        description: "There was an error submitting your registration. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -123,9 +152,10 @@ const Signup = () => {
 
             <Button
               type="submit"
+              disabled={isSubmitting}
               className="w-full bg-custom-pink hover:bg-custom-pink/90 text-white py-6 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
             >
-              Join Pioneer Program
+              {isSubmitting ? "Submitting..." : "Join Pioneer Program"}
             </Button>
 
             <p className="text-sm text-gray-500 text-center mt-4">
