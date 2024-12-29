@@ -13,7 +13,6 @@ export const Hero = () => {
               "lovable-uploads/f397f1c2-83ef-4111-8dbd-96d9efa8791c.png"
             ].map((src, index) => (
               <div key={index} className="relative aspect-video overflow-hidden rounded-2xl">
-                <div className="absolute inset-0 backdrop-blur-sm"></div>
                 <img
                   src={src}
                   alt="Student wellbeing"
