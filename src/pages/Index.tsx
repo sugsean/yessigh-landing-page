@@ -6,6 +6,7 @@ import { Testimonials } from "@/components/landing/Testimonials";
 import { Pricing } from "@/components/landing/Pricing";
 import { Footer } from "@/components/landing/Footer";
 import { SocialImpact } from "@/components/landing/SocialImpact";
+import { InterfaceShowcase } from "@/components/landing/InterfaceShowcase";
 
 const Index = () => {
   return (
@@ -13,6 +14,7 @@ const Index = () => {
       <Hero />
       <ProblemSolution />
       <Features />
+      <InterfaceShowcase />
       <Benefits />
       <Testimonials />
       <SocialImpact />
