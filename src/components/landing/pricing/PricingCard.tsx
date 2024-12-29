@@ -28,8 +28,10 @@ export const PricingCard = ({
   recommended = false,
 }: PricingCardProps) => {
   const isUK = navigator.language.includes('GB') || navigator.language.includes('UK');
-  const formattedPrice = typeof priceUSD === 'string' ? priceUSD : 
-    isUK ? `£${priceGBP}` : `$${priceUSD}`;
+  const price = isUK ? priceGBP : priceUSD;
+  const formattedPrice = typeof price === 'number' ? 
+    `${isUK ? '£' : '$'}${price}` : 
+    price;
 
   return (
     <motion.div
@@ -51,12 +53,12 @@ export const PricingCard = ({
         <p className="text-sm text-gray-600 mb-2">{description}</p>
         <div className="mb-4">
           <span className="text-2xl font-bold">{formattedPrice}</span>
-          {typeof priceUSD !== 'string' && <span className="text-sm text-gray-600">/month</span>}
+          {typeof price === 'number' && <span className="text-sm text-gray-600">/month</span>}
         </div>
         <Button 
           className={`w-full bg-${color} hover:opacity-90 text-white`}
         >
-          {typeof priceUSD === 'string' ? "Contact Sales" : "Get Started"}
+          {typeof price === 'number' ? "Get Started" : "Contact Sales"}
         </Button>
       </div>
       <div className="p-4">

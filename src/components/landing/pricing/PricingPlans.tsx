@@ -67,7 +67,8 @@ const schoolPlans = [
   },
   {
     name: "Premium School Plan",
-    price: "Contact Us",
+    priceUSD: "Custom pricing",
+    priceGBP: "Custom pricing",
     description: "Enterprise-level solution for larger institutions",
     features: [
       { 
