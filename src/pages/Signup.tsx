@@ -15,6 +15,7 @@ const Signup = () => {
     email: "",
     school: "",
     position: "",
+    childrenCount: "1",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
@@ -34,6 +35,7 @@ const Signup = () => {
             email: formData.email,
             school: formData.school,
             position: userType === 'teacher' ? formData.position : null,
+            children_count: userType === 'parent' ? parseInt(formData.childrenCount) : null,
             created_at: new Date().toISOString(),
           }
         ]);
@@ -144,6 +146,24 @@ const Signup = () => {
                       setFormData({ ...formData, position: e.target.value })
                     }
                     placeholder="e.g., Mathematics Teacher, Year 6 Teacher"
+                    required
+                  />
+                </div>
+              )}
+
+              {userType === "parent" && (
+                <div>
+                  <Label htmlFor="childrenCount">Number of Children to Monitor</Label>
+                  <Input
+                    id="childrenCount"
+                    type="number"
+                    min="1"
+                    max="10"
+                    value={formData.childrenCount}
+                    onChange={(e) =>
+                      setFormData({ ...formData, childrenCount: e.target.value })
+                    }
+                    placeholder="Enter number of children"
                     required
                   />
                 </div>
