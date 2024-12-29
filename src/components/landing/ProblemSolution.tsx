@@ -7,21 +7,24 @@ const problems = [
     solution: "Real-time monitoring and early intervention system",
     image: "lovable-uploads/556f521d-4ddb-4f38-87ab-ddc9ec55adfd.png",
     description: "Our platform helps identify potential issues before they escalate, ensuring timely intervention and support.",
-    color: "custom-pink"
+    color: "custom-pink",
+    delay: 0.1
   },
   {
     problem: "Struggling with teacher burnout?",
     solution: "Comprehensive wellbeing support and resources",
     image: "lovable-uploads/30116998-8eae-4786-a160-60dafb19bcee.png",
     description: "Provide teachers with the tools and support they need to maintain their wellbeing and effectiveness.",
-    color: "custom-mint"
+    color: "custom-mint",
+    delay: 0.2
   },
   {
     problem: "Limited visibility into student wellbeing?",
     solution: "Data-driven insights and actionable analytics",
     image: "lovable-uploads/a6dd2750-e8f9-479c-9eff-b8f6566f6031.png",
     description: "Get clear insights into student wellbeing trends and make informed decisions with our comprehensive analytics.",
-    color: "custom-purple"
+    color: "custom-purple",
+    delay: 0.3
   },
 ];
 
@@ -29,15 +32,6 @@ export const ProblemSolution = () => {
   return (
     <section className="py-24 bg-gradient-to-b from-white to-custom-mint/20">
       <div className="container mx-auto px-4">
-        <div className="flex justify-center mb-8">
-          <motion.img 
-            src="lovable-uploads/efeac921-24d5-43de-9e5a-29ee60b7cba7.png" 
-            alt="YesSigh Logo" 
-            className="w-24 h-24"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          />
-        </div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -53,32 +47,27 @@ export const ProblemSolution = () => {
           </p>
         </motion.div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {problems.map((item, index) => (
+          {problems.map((item) => (
             <motion.div
               key={item.problem}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group"
+              transition={{ duration: 0.6, delay: item.delay }}
+              className="group cursor-pointer"
             >
-              <div className={`bg-${item.color}/5 rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl border border-${item.color}/20`}>
-                <div className="relative h-72">
+              <div className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl border border-gray-100 h-full">
+                <div className="relative h-64">
                   <img
                     src={item.image}
                     alt={item.problem}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className={`absolute inset-0 bg-gradient-to-t from-${item.color} to-transparent opacity-30`}/>
-                  <div className="absolute inset-0 flex items-end">
-                    <div className="p-6 w-full backdrop-blur-sm bg-white/30">
-                      <h3 className="text-xl font-semibold mb-2 text-gray-800">
-                        {item.problem}
-                      </h3>
-                    </div>
-                  </div>
                 </div>
                 <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-2 text-gray-800">
+                    {item.problem}
+                  </h3>
                   <div className="flex items-start gap-3 mb-4">
                     <CheckCircle className={`w-6 h-6 text-${item.color} flex-shrink-0 mt-1`} />
                     <div>
