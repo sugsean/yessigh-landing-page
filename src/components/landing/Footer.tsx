@@ -2,11 +2,11 @@ import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 
 export const Footer = () => {
   return (
-    <footer className="bg-white border-t border-gray-200">
+    <footer className="bg-gradient-to-b from-custom-mint/10 to-white border-t border-custom-purple/20">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="font-semibold text-lg mb-4">YesSigh</h3>
+            <h3 className="font-semibold text-lg mb-4 bg-gradient-to-r from-custom-pink to-custom-purple bg-clip-text text-transparent">YesSigh</h3>
             <p className="text-gray-600 text-sm">
               Empowering education through wellbeing monitoring and support.
             </p>
@@ -67,36 +67,22 @@ export const Footer = () => {
             </ul>
           </div>
         </div>
-        <div className="mt-8 pt-8 border-t border-gray-200">
+        <div className="mt-8 pt-8 border-t border-custom-purple/10">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-600 text-sm">
               © 2024 YesSigh. All rights reserved.
             </p>
             <div className="flex space-x-4 mt-4 md:mt-0">
-              <a
-                href="#"
-                className="text-gray-400 hover:text-gray-600 transition-colors"
-              >
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-gray-600 transition-colors"
-              >
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-gray-600 transition-colors"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-gray-600 transition-colors"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
+              {[Facebook, Twitter, Instagram, Linkedin].map((Icon, index) => (
+                <motion.a
+                  key={index}
+                  href="#"
+                  whileHover={{ scale: 1.1 }}
+                  className="text-custom-purple hover:text-custom-pink transition-colors"
+                >
+                  <Icon className="w-5 h-5" />
+                </motion.a>
+              ))}
             </div>
           </div>
         </div>
