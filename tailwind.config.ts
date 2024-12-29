@@ -53,11 +53,11 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         yessigh: {
-          purple: "#CDB4DB",
-          pink: "#FFC8DD",
-          lightPink: "#FFAFCC",
-          lightBlue: "#BDE0FE",
-          blue: "#A2D2FF",
+          darkBlue: "#264653",
+          teal: "#2a9d8f",
+          yellow: "#e9c46a",
+          orange: "#f4a261",
+          coral: "#e76f51",
         },
       },
       keyframes: {
