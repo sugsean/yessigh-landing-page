@@ -76,11 +76,11 @@ export const Features = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ scale: 1.02 }}
-              className={`p-6 rounded-2xl bg-${feature.color}/5 shadow-lg hover:shadow-xl transition-all duration-300 border border-${feature.color}/20`}
+              className={`p-6 rounded-2xl bg-${feature.color} shadow-lg hover:shadow-xl transition-all duration-300`}
             >
-              <feature.icon className={`w-12 h-12 text-${feature.color} mb-4`} />
-              <h3 className={`text-xl font-semibold mb-2 text-${feature.color}`}>{feature.title}</h3>
-              <p className="text-gray-600">{feature.description}</p>
+              <feature.icon className="w-12 h-12 text-white mb-4" />
+              <h3 className="text-xl font-semibold mb-2 text-white">{feature.title}</h3>
+              <p className="text-white/90">{feature.description}</p>
             </motion.div>
           ))}
         </div>
