@@ -79,35 +79,34 @@ export const Hero = () => {
             </div>
           </motion.div>
 
-          {/* Right column - Image grid */}
+          {/* Right column - Decorative elements */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="relative grid grid-cols-2 gap-4"
+            className="relative h-full min-h-[400px] flex items-center justify-center"
           >
-            {[
-              "lovable-uploads/58c88ab8-818d-495e-8b8b-d58afd347939.png",
-              "lovable-uploads/2b78c27e-20b3-4566-942c-e650b98ae466.png",
-              "lovable-uploads/379c1137-b020-4530-923b-2ae85c191995.png",
-              "lovable-uploads/efeac921-24d5-43de-9e5a-29ee60b7cba7.png"
-            ].map((src, index) => (
+            <div className="absolute inset-0">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-custom-purple/30 rounded-full blur-3xl" />
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-custom-pink/30 rounded-full blur-3xl" />
+              <div className="absolute center-0 w-64 h-64 bg-custom-blue/30 rounded-full blur-3xl" />
+            </div>
+            <div className="relative z-10 text-center space-y-4">
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                className={`relative ${index === 3 ? 'col-span-2' : ''} aspect-video overflow-hidden rounded-2xl cursor-pointer group`}
-                whileHover={{ scale: 1.05 }}
+                initial={{ scale: 0.8 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="w-24 h-24 bg-custom-mint/20 rounded-full flex items-center justify-center mx-auto"
               >
-                <img
-                  src={src}
-                  alt={`YesSigh platform interface showcase ${index + 1}`}
-                  className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent group-hover:opacity-0 transition-opacity duration-300" />
+                <Heart className="w-12 h-12 text-custom-pink" />
               </motion.div>
-            ))}
+              <h3 className="text-2xl font-bold text-gray-800">
+                Empowering Education
+              </h3>
+              <p className="text-gray-600 max-w-md mx-auto">
+                Join us in creating a supportive environment where every student can thrive
+              </p>
+            </div>
           </motion.div>
         </div>
       </div>
