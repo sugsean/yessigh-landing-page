@@ -24,7 +24,7 @@ const benefits = {
 
 export const Benefits = () => {
   return (
-    <section className="py-24 bg-gradient-to-b from-yessigh-lightBlue/10 to-white">
+    <section className="py-24 bg-gradient-to-b from-custom-mint/10 to-white">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -33,7 +33,7 @@ export const Benefits = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-custom-pink via-custom-purple to-custom-blue bg-clip-text text-transparent">
             Benefits for Everyone
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
@@ -48,15 +48,16 @@ export const Benefits = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="p-6 rounded-2xl bg-white shadow-lg hover:shadow-xl transition-shadow duration-300"
+              whileHover={{ scale: 1.02 }}
+              className="p-6 rounded-2xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
             >
-              <h3 className="text-xl font-semibold mb-4 capitalize">
+              <h3 className="text-xl font-semibold mb-4 capitalize bg-gradient-to-r from-custom-pink to-custom-purple bg-clip-text text-transparent">
                 For {category}
               </h3>
               <ul className="space-y-3">
                 {items.map((item) => (
                   <li key={item} className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-yessigh-blue flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-custom-blue flex-shrink-0 mt-0.5" />
                     <span className="text-gray-600">{item}</span>
                   </li>
                 ))}

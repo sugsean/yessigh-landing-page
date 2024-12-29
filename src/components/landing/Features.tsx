@@ -39,10 +39,12 @@ export const Features = () => {
     <section className="py-24 bg-gradient-to-b from-white to-custom-mint/10">
       <div className="container mx-auto px-4">
         <div className="flex justify-center mb-8">
-          <img 
+          <motion.img 
             src="lovable-uploads/efeac921-24d5-43de-9e5a-29ee60b7cba7.png" 
             alt="YesSigh Logo" 
-            className="w-16 h-16 opacity-50"
+            className="w-20 h-20"
+            whileHover={{ scale: 1.1, rotate: 5 }}
+            transition={{ type: "spring", stiffness: 300 }}
           />
         </div>
         <div className="text-center mb-16">
@@ -51,7 +53,7 @@ export const Features = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-bold mb-4"
+            className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-custom-pink via-custom-purple to-custom-blue bg-clip-text text-transparent"
           >
             Comprehensive Features for Complete Wellbeing
           </motion.h2>
@@ -67,7 +69,8 @@ export const Features = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="p-6 rounded-2xl bg-white shadow-lg hover:shadow-xl transition-shadow duration-300"
+              whileHover={{ scale: 1.02 }}
+              className="p-6 rounded-2xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
             >
               <feature.icon className="w-12 h-12 text-custom-blue mb-4" />
               <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>

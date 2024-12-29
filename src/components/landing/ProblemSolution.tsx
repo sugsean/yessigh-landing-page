@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { CheckCircle } from "lucide-react";
+import { AlertTriangle, Battery, ChartBar } from "lucide-react";
 
 const problems = [
   {
@@ -7,6 +7,7 @@ const problems = [
     solution: "Real-time monitoring and early intervention system",
     image: "lovable-uploads/556f521d-4ddb-4f38-87ab-ddc9ec55adfd.png",
     description: "Our platform helps identify potential issues before they escalate, ensuring timely intervention and support.",
+    icon: AlertTriangle,
     color: "custom-pink",
     delay: 0.1
   },
@@ -15,6 +16,7 @@ const problems = [
     solution: "Comprehensive wellbeing support and resources",
     image: "lovable-uploads/30116998-8eae-4786-a160-60dafb19bcee.png",
     description: "Provide teachers with the tools and support they need to maintain their wellbeing and effectiveness.",
+    icon: Battery,
     color: "custom-mint",
     delay: 0.2
   },
@@ -23,6 +25,7 @@ const problems = [
     solution: "Data-driven insights and actionable analytics",
     image: "lovable-uploads/a6dd2750-e8f9-479c-9eff-b8f6566f6031.png",
     description: "Get clear insights into student wellbeing trends and make informed decisions with our comprehensive analytics.",
+    icon: ChartBar,
     color: "custom-purple",
     delay: 0.3
   },
@@ -63,13 +66,16 @@ export const ProblemSolution = () => {
                     alt={item.problem}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <h3 className="text-xl font-semibold mb-2 text-white">
+                      {item.problem}
+                    </h3>
+                  </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2 text-gray-800">
-                    {item.problem}
-                  </h3>
                   <div className="flex items-start gap-3 mb-4">
-                    <CheckCircle className={`w-6 h-6 text-${item.color} flex-shrink-0 mt-1`} />
+                    <item.icon className={`w-6 h-6 text-${item.color} flex-shrink-0 mt-1`} />
                     <div>
                       <p className="font-semibold text-gray-800 mb-2">{item.solution}</p>
                       <p className="text-gray-600">{item.description}</p>

@@ -16,16 +16,16 @@ export const Hero = () => {
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
                 className="relative aspect-video overflow-hidden rounded-2xl cursor-pointer group"
-                whileHover={{ scale: 1.02 }}
+                whileHover={{ scale: 1.05 }}
               >
                 <img
                   src={src}
-                  alt="YesSigh platform interface"
-                  className="w-full h-full object-cover rounded-2xl transition-transform duration-300 group-hover:scale-105"
+                  alt={`YesSigh platform interface showcase ${index + 1}`}
+                  className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent group-hover:opacity-0 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent group-hover:opacity-0 transition-opacity duration-300"></div>
               </motion.div>
             ))}
           </div>
@@ -36,17 +36,17 @@ export const Hero = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center max-w-4xl mx-auto bg-white/80 backdrop-blur-sm p-8 rounded-2xl"
+          transition={{ duration: 1 }}
+          className="text-center max-w-4xl mx-auto bg-white/90 backdrop-blur-md p-8 rounded-2xl shadow-xl"
         >
           <motion.img 
             src="lovable-uploads/efeac921-24d5-43de-9e5a-29ee60b7cba7.png" 
-            alt="YesSigh Logo" 
-            className="w-24 h-24 mx-auto mb-8"
-            whileHover={{ scale: 1.05 }}
+            alt="YesSigh Logo - Empowering Educational Wellbeing" 
+            className="w-32 h-32 mx-auto mb-8"
+            whileHover={{ scale: 1.1, rotate: 5 }}
             transition={{ type: "spring", stiffness: 300 }}
           />
-          <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium rounded-full bg-custom-pink text-white">
+          <span className="inline-block px-6 py-2 mb-6 text-sm font-medium rounded-full bg-gradient-to-r from-custom-pink to-custom-purple text-white">
             Transform Your School's Wellbeing Approach
           </span>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-custom-pink via-custom-purple to-custom-blue bg-clip-text text-transparent">
@@ -58,14 +58,14 @@ export const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button
               size="lg"
-              className="bg-custom-pink hover:bg-custom-pink/90 text-white px-8 py-6 rounded-full transition-all duration-300 transform hover:scale-105 w-full sm:w-auto"
+              className="bg-custom-pink hover:bg-custom-pink/90 text-white px-8 py-6 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg w-full sm:w-auto"
             >
               Start Free Trial
             </Button>
             <Button
               variant="outline"
               size="lg"
-              className="border-custom-purple text-custom-purple hover:bg-custom-purple/10 px-8 py-6 rounded-full transition-all duration-300 w-full sm:w-auto"
+              className="border-2 border-custom-purple text-custom-purple hover:bg-custom-purple/10 px-8 py-6 rounded-full transition-all duration-300 hover:shadow-lg w-full sm:w-auto"
             >
               Book a Demo
             </Button>
