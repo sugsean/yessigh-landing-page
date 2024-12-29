@@ -61,6 +61,7 @@ export const Hero = () => {
               <Button
                 size="lg"
                 className="bg-custom-pink hover:bg-custom-pink/90 text-white px-8 py-6 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg group"
+                onClick={() => window.location.href = '/signup'}
               >
                 Join Pioneer Program
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
