@@ -1,81 +1,85 @@
-import { motion } from "framer-motion";
 import { useParams } from "react-router-dom";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
-
-const features = {
-  "are-you-missing-the-warning-signs": {
-    title: "Early Warning System",
-    description: "Our real-time monitoring system helps identify potential issues before they escalate, ensuring timely intervention and support.",
-    images: ["lovable-uploads/e581e79a-7187-4d6a-bf6c-75c337c5a74d.png", "lovable-uploads/08ba3069-c386-470c-8f02-3ff8ea52910b.png"],
-    color: "custom-pink"
-  },
-  "struggling-with-teacher-burnout": {
-    title: "Teacher Wellbeing Support",
-    description: "Comprehensive tools and resources to help teachers maintain their wellbeing and effectiveness in the classroom.",
-    images: ["lovable-uploads/f3fd211b-2945-4957-a2eb-acfecb4440f7.png", "lovable-uploads/9f030b06-923f-474e-b61e-a56e698da108.png"],
-    color: "custom-mint"
-  },
-  "limited-visibility-into-student-wellbeing": {
-    title: "Student Wellbeing Analytics",
-    description: "Data-driven insights and analytics to help you make informed decisions about student wellbeing.",
-    images: ["lovable-uploads/ebac6bfa-f560-47bc-bdf6-c2417d3e959f.png"],
-    color: "custom-purple"
-  }
-};
+import { useNavigate } from "react-router-dom";
+import { ArrowLeft, CheckCircle2 } from "lucide-react";
 
 const Features = () => {
   const { id } = useParams();
-  const feature = features[id as keyof typeof features];
+  const navigate = useNavigate();
 
-  if (!feature) {
-    return <div>Feature not found</div>;
-  }
-
-  return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="container mx-auto px-4 py-12">
-        <Link to="/">
-          <Button variant="ghost" className="mb-8">
-            <ArrowLeft className="mr-2 h-4 w-4" /> Back to home
-          </Button>
-        </Link>
-        
+  if (id === "welcome") {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-white to-custom-mint/20 py-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.5 }}
+          className="container max-w-2xl mx-auto px-4"
         >
-          <h1 className={`text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-${feature.color} to-custom-blue bg-clip-text text-transparent`}>
-            {feature.title}
-          </h1>
-          <p className="text-gray-600 max-w-3xl mx-auto text-lg">
-            {feature.description}
+          <div className="text-center mb-8">
+            <img 
+              src="/lovable-uploads/d21ed953-3c6f-49a6-b6cf-6f61a335c827.png" 
+              alt="YesSigh Logo" 
+              className="mx-auto h-20 mb-6"
+            />
+          </div>
+
+          <div className="bg-white rounded-2xl shadow-xl p-8 text-center">
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.2, type: "spring", stiffness: 100 }}
+              className="mb-6"
+            >
+              <CheckCircle2 className="w-16 h-16 mx-auto text-green-500" />
+            </motion.div>
+
+            <h1 className="text-3xl font-bold mb-4">Welcome to YesSigh!</h1>
+            <p className="text-gray-600 mb-8">
+              Thank you for joining our pioneer program. We're excited to have you on board!
+              Our team will review your application and get back to you shortly with next steps.
+            </p>
+
+            <div className="space-y-4">
+              <div className="p-4 bg-custom-mint/20 rounded-lg">
+                <h2 className="font-semibold mb-2">What's Next?</h2>
+                <ul className="text-left text-gray-600 space-y-2">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0" />
+                    <span>We'll review your application within 24-48 hours</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0" />
+                    <span>You'll receive an email with access instructions</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0" />
+                    <span>Our team will schedule an onboarding call</span>
+                  </li>
+                </ul>
+              </div>
+
+              <Button
+                onClick={() => navigate("/")}
+                variant="outline"
+                className="w-full gap-2"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                Return to Homepage
+              </Button>
+            </div>
+          </div>
+
+          <p className="text-sm text-gray-500 text-center mt-8">
+            Questions? Contact us at support@yessigh.com
           </p>
         </motion.div>
-
-        <div className="grid grid-cols-1 gap-8">
-          {feature.images.map((image, index) => (
-            <motion.div
-              key={image}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden"
-            >
-              <img
-                src={image}
-                alt={`${feature.title} screenshot ${index + 1}`}
-                className="w-full h-auto"
-              />
-            </motion.div>
-          ))}
-        </div>
       </div>
-    </div>
-  );
+    );
+  }
+
+  return null;
 };
 
 export default Features;

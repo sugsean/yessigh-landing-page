@@ -158,6 +158,42 @@ export type Database = {
         }
         Relationships: []
       }
+      signups: {
+        Row: {
+          children_count: number | null
+          country: string
+          created_at: string
+          email: string
+          id: string
+          name: string
+          position: string | null
+          school: string | null
+          user_type: string
+        }
+        Insert: {
+          children_count?: number | null
+          country: string
+          created_at?: string
+          email: string
+          id?: string
+          name: string
+          position?: string | null
+          school?: string | null
+          user_type: string
+        }
+        Update: {
+          children_count?: number | null
+          country?: string
+          created_at?: string
+          email?: string
+          id?: string
+          name?: string
+          position?: string | null
+          school?: string | null
+          user_type?: string
+        }
+        Relationships: []
+      }
       students: {
         Row: {
           class_group: string | null
