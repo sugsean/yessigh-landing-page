@@ -2,58 +2,58 @@ import { PricingTier } from "@/types/pricing";
 
 export const schoolPlans: PricingTier[] = [
   {
-    name: "Basic School Plan",
+    name: "Small School Plan",
     price: 299,
-    idealFor: "Small primary schools that want an easy, ethical, effective approach for clear student and staff support",
-    description: "A foundational plan that gives access to all the core features while adhering to strong ethical and transparent data practices",
-    ethicalApproach: "Provides fundamental data tracking needed to create safer student and staff spaces",
+    idealFor: "Primary schools with under 200 students seeking an ethical, complete solution",
+    description: "All core features included with ethical compliance and clear UI design",
+    ethicalApproach: "Complete feature access with strong ethical data handling for smaller communities",
     features: [
-      { name: "Up to 200 Student profiles" },
-      { name: "Secure and Ethical data management" },
-      { name: "Core Teacher/Student data management" },
-      { name: "Real Time Student Well-being Tracking" },
-      { name: "Automated communications tools" },
-      { name: "Core reporting templates" },
-      { name: "Basic analytics dashboards" },
-      { name: "Direct support access" }
+      { name: "Up to 200 student profiles" },
+      { name: "Real-time wellbeing monitoring" },
+      { name: "Ethical data management" },
+      { name: "Parent-teacher communication" },
+      { name: "Core reporting features" },
+      { name: "Training documentation" },
+      { name: "Basic support access" },
+      { name: "Student dashboard" }
     ],
     color: "custom-mint",
     recommended: false
   },
   {
-    name: "Standard School Plan",
+    name: "Medium School Plan",
     price: 749,
-    idealFor: "Medium-sized schools seeking a higher level of support and deeper functionality",
-    description: "Includes all Basic Plan features plus expanded data tools and enhanced user controls",
-    ethicalApproach: "Enhanced user controls and flexibility while promoting ethical data practices",
+    idealFor: "Schools with 200-500 students needing enhanced data management",
+    description: "Advanced features with AI-powered insights and priority support",
+    ethicalApproach: "Scalable ethical framework with enhanced data protection",
     features: [
-      { name: "All Basic Plan features" },
       { name: "Up to 500 student profiles" },
-      { name: "Advanced analytics dashboard" },
+      { name: "AI-powered reporting" },
+      { name: "Enhanced data visualization" },
+      { name: "Professional service integration" },
       { name: "Priority support access" },
-      { name: "Full API access" },
-      { name: "Enhanced teacher support tools" },
-      { name: "Appointment management system" },
-      { name: "Community resource sharing" }
+      { name: "Advanced security protocols" },
+      { name: "Automated notifications" },
+      { name: "Extended data storage" }
     ],
     color: "custom-yellow",
     recommended: true
   },
   {
-    name: "Premium School Plan",
+    name: "Large School Plan",
     price: "Custom pricing",
-    idealFor: "Larger multi-site school networks seeking maximum control and customization",
-    description: "Complete and comprehensive features with high-level support and custom development options",
-    ethicalApproach: "Enterprise-grade ethical data handling with complete transparency",
+    idealFor: "School districts or large systems with multiple locations",
+    description: "Enterprise-grade solution with complete customization options",
+    ethicalApproach: "Enterprise-level ethical standards with complete transparency",
     features: [
-      { name: "All Standard Plan features" },
       { name: "Unlimited student profiles" },
-      { name: "Enterprise-level security" },
+      { name: "Custom integrations" },
       { name: "24/7 dedicated support" },
-      { name: "AI-powered analytics" },
-      { name: "Custom implementation" },
-      { name: "Professional consultation" },
-      { name: "Feature development input" }
+      { name: "Advanced AI analytics" },
+      { name: "Multi-site management" },
+      { name: "Professional training plans" },
+      { name: "Feature development input" },
+      { name: "Enterprise security" }
     ],
     color: "custom-blue",
     recommended: false
@@ -64,13 +64,13 @@ export const additionalPlans: PricingTier[] = [
   {
     name: "Individual Teacher Plan",
     price: 20,
-    idealFor: "Individual teachers exploring core functionality",
-    description: "Access to key elements with basic reporting tools",
+    idealFor: "Individual teachers needing platform access",
+    description: "Basic package with core functionality for single classroom use",
     features: [
-      { name: "Core user features" },
+      { name: "Single classroom features" },
       { name: "Basic reporting tools" },
-      { name: "Professional documentation" },
-      { name: "Community channel access" }
+      { name: "Resource access" },
+      { name: "Support ticket system" }
     ],
     color: "custom-purple"
   },
@@ -78,12 +78,12 @@ export const additionalPlans: PricingTier[] = [
     name: "Parent Access",
     price: 0,
     idealFor: "Parents wanting to stay connected",
-    description: "Core features for monitoring student well-being",
+    description: "Free access to core features for monitoring student well-being",
     features: [
-      { name: "View basic well-being insights" },
-      { name: "Download basic reports" },
-      { name: "Teacher communication" },
-      { name: "Activity notifications" }
+      { name: "Basic well-being reports" },
+      { name: "Secure messaging" },
+      { name: "Activity notifications" },
+      { name: "Direct teacher communication" }
     ],
     color: "custom-pink"
   }

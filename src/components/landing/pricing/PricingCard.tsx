@@ -36,30 +36,30 @@ export const PricingCard = ({ plan, index, isUK }: PricingCardProps) => {
         </div>
       )}
       <div className={`p-6 bg-gradient-to-br from-${plan.color}/30 to-white`}>
-        <h3 className="text-xl font-bold mb-2">{plan.name}</h3>
+        <h3 className="text-xl font-bold mb-2 text-gray-800">{plan.name}</h3>
         <p className="text-sm text-gray-600 mb-2">{plan.idealFor}</p>
         {plan.ethicalApproach && (
           <p className="text-sm text-gray-700 mb-3 italic">{plan.ethicalApproach}</p>
         )}
         <div className="mb-4">
-          <span className="text-3xl font-bold">{formatPrice(plan.price)}</span>
+          <span className="text-3xl font-bold text-gray-800">{formatPrice(plan.price)}</span>
           {typeof plan.price === "number" && (
             <span className="text-sm text-gray-600">/month</span>
           )}
         </div>
         <Button 
-          className={`w-full bg-gradient-to-r from-${plan.color} to-custom-purple hover:opacity-90`}
+          className={`w-full bg-gradient-to-r from-${plan.color} to-custom-purple hover:opacity-90 text-white font-semibold`}
         >
           {typeof plan.price === "string" ? "Contact Sales" : "Get Started"}
         </Button>
       </div>
       <div className="p-6">
-        <p className="text-sm text-gray-700 mb-4">{plan.description}</p>
+        <p className="text-sm text-gray-700 mb-4 leading-relaxed">{plan.description}</p>
         <ul className="space-y-3">
           {plan.features.map((feature, idx) => (
             <li key={idx} className="flex items-start gap-2">
-              <Check className={`w-5 h-5 text-${plan.color} mt-0.5`} />
-              <div>
+              <Check className={`w-5 h-5 text-${plan.color} mt-0.5 flex-shrink-0`} />
+              <div className="flex-1">
                 <span className="text-sm text-gray-700">{feature.name}</span>
                 {feature.description && (
                   <Tooltip>
