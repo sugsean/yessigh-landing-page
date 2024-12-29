@@ -52,12 +52,12 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        yessigh: {
-          darkBlue: "#264653",
-          teal: "#2a9d8f",
-          yellow: "#e9c46a",
-          orange: "#f4a261",
-          coral: "#e76f51",
+        custom: {
+          pink: "#ff99c8",
+          yellow: "#fcf6bd",
+          mint: "#d0f4de",
+          blue: "#a9def9",
+          purple: "#e4c1f9",
         },
       },
       keyframes: {
