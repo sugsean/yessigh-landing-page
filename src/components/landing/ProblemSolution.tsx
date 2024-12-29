@@ -5,17 +5,20 @@ const problems = [
   {
     problem: "Are you missing the warning signs?",
     solution: "Real-time monitoring and early intervention system",
-    image: "lovable-uploads/556f521d-4ddb-4f38-87ab-ddc9ec55adfd.png"
+    image: "lovable-uploads/556f521d-4ddb-4f38-87ab-ddc9ec55adfd.png",
+    description: "Our platform helps identify potential issues before they escalate, ensuring timely intervention and support."
   },
   {
     problem: "Struggling with teacher burnout?",
     solution: "Comprehensive wellbeing support and resources",
-    image: "lovable-uploads/30116998-8eae-4786-a160-60dafb19bcee.png"
+    image: "lovable-uploads/30116998-8eae-4786-a160-60dafb19bcee.png",
+    description: "Provide teachers with the tools and support they need to maintain their wellbeing and effectiveness."
   },
   {
     problem: "Limited visibility into student wellbeing?",
     solution: "Data-driven insights and actionable analytics",
-    image: "lovable-uploads/a6dd2750-e8f9-479c-9eff-b8f6566f6031.png"
+    image: "lovable-uploads/a6dd2750-e8f9-479c-9eff-b8f6566f6031.png",
+    description: "Get clear insights into student wellbeing trends and make informed decisions with our comprehensive analytics."
   },
 ];
 
@@ -27,7 +30,7 @@ export const ProblemSolution = () => {
           <img 
             src="lovable-uploads/efeac921-24d5-43de-9e5a-29ee60b7cba7.png" 
             alt="YesSigh Logo" 
-            className="w-16 h-16 opacity-50"
+            className="w-24 h-24"
           />
         </div>
         <motion.div
@@ -44,7 +47,7 @@ export const ProblemSolution = () => {
             Transform challenges into opportunities with YesSigh's comprehensive solutions
           </p>
         </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {problems.map((item, index) => (
             <motion.div
               key={item.problem}
@@ -52,25 +55,37 @@ export const ProblemSolution = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="relative group"
+              className="group"
             >
-              <div className="relative p-6 rounded-2xl bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
-                <div className="absolute inset-0 opacity-10">
+              <div className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                <div className="relative h-64 md:h-72">
                   <img
                     src={item.image}
                     alt={item.problem}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
-                </div>
-                <div className="relative z-10">
-                  <AlertTriangle className="w-12 h-12 text-custom-pink mb-4" />
-                  <h3 className="text-xl font-semibold mb-2 text-gray-800">
-                    {item.problem}
-                  </h3>
-                  <div className="flex items-start gap-2 mt-4">
-                    <CheckCircle className="w-5 h-5 text-custom-blue flex-shrink-0 mt-1" />
-                    <p className="text-gray-600">{item.solution}</p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+                    <div className="p-6">
+                      <h3 className="text-xl font-semibold mb-2 text-white">
+                        {item.problem}
+                      </h3>
+                    </div>
                   </div>
+                </div>
+                <div className="p-6">
+                  <div className="flex items-start gap-3 mb-4">
+                    <CheckCircle className="w-6 h-6 text-custom-blue flex-shrink-0 mt-1" />
+                    <div>
+                      <p className="font-semibold text-gray-800 mb-2">{item.solution}</p>
+                      <p className="text-gray-600">{item.description}</p>
+                    </div>
+                  </div>
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    className="w-full mt-4 bg-custom-pink text-white py-3 px-6 rounded-lg hover:bg-opacity-90 transition-colors"
+                  >
+                    Learn More
+                  </motion.button>
                 </div>
               </div>
             </motion.div>
