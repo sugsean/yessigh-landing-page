@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight, Heart, Brain, Users } from "lucide-react";
+import { ArrowRight, Heart, Brain, Users, Clock } from "lucide-react";
 
 export const Hero = () => {
   return (
@@ -21,10 +21,14 @@ export const Hero = () => {
             transition={{ duration: 0.8 }}
             className="text-left space-y-6"
           >
-            <div className="flex items-center gap-2 mb-6">
+            <div className="flex flex-col sm:flex-row gap-2 mb-6">
               <span className="px-4 py-1.5 rounded-full bg-custom-pink/20 text-custom-pink font-medium text-sm inline-flex items-center">
                 <Heart size={16} className="mr-2" />
                 Supporting Student Wellbeing
+              </span>
+              <span className="px-4 py-1.5 rounded-full bg-custom-yellow text-gray-800 font-medium text-sm inline-flex items-center">
+                <Clock size={16} className="mr-2" />
+                Early Access - 50% Off
               </span>
             </div>
 
@@ -40,12 +44,25 @@ export const Hero = () => {
               Real-time wellbeing monitoring, personalized support, and data-driven insights for schools that care about their community's mental health.
             </p>
 
+            {/* Early Access Banner */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="bg-gradient-to-r from-custom-yellow to-custom-mint p-4 rounded-lg shadow-lg"
+            >
+              <h3 className="text-gray-800 font-semibold mb-1">Join Our Pioneer Program</h3>
+              <p className="text-sm text-gray-700">
+                Early supporters receive a special 50% discount when joining before January 30th, 2025. Be among the first to shape the future of student wellbeing.
+              </p>
+            </motion.div>
+
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button
                 size="lg"
                 className="bg-custom-pink hover:bg-custom-pink/90 text-white px-8 py-6 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg group"
               >
-                Start Free Trial
+                Join Pioneer Program
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button
