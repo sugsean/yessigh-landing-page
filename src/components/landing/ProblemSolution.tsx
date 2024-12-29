@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
-import { AlertTriangle, Battery, ChartBar } from "lucide-react";
+import { AlertTriangle, Battery, ChartBar, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "../ui/button";
 
 const problems = [
   {
@@ -9,7 +11,8 @@ const problems = [
     description: "Our platform helps identify potential issues before they escalate, ensuring timely intervention and support.",
     icon: AlertTriangle,
     color: "custom-pink",
-    delay: 0.1
+    delay: 0.1,
+    demoImages: ["lovable-uploads/e581e79a-7187-4d6a-bf6c-75c337c5a74d.png", "lovable-uploads/08ba3069-c386-470c-8f02-3ff8ea52910b.png"]
   },
   {
     problem: "Struggling with teacher burnout?",
@@ -18,7 +21,8 @@ const problems = [
     description: "Provide teachers with the tools and support they need to maintain their wellbeing and effectiveness.",
     icon: Battery,
     color: "custom-mint",
-    delay: 0.2
+    delay: 0.2,
+    demoImages: ["lovable-uploads/f3fd211b-2945-4957-a2eb-acfecb4440f7.png", "lovable-uploads/9f030b06-923f-474e-b61e-a56e698da108.png"]
   },
   {
     problem: "Limited visibility into student wellbeing?",
@@ -27,7 +31,8 @@ const problems = [
     description: "Get clear insights into student wellbeing trends and make informed decisions with our comprehensive analytics.",
     icon: ChartBar,
     color: "custom-purple",
-    delay: 0.3
+    delay: 0.3,
+    demoImages: ["lovable-uploads/ebac6bfa-f560-47bc-bdf6-c2417d3e959f.png"]
   },
 ];
 
@@ -81,12 +86,17 @@ export const ProblemSolution = () => {
                       <p className="text-gray-600">{item.description}</p>
                     </div>
                   </div>
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    className={`w-full mt-4 bg-${item.color} text-white py-3 px-6 rounded-lg hover:bg-opacity-90 transition-colors`}
-                  >
-                    Learn More
-                  </motion.button>
+                  <Link to={`/features/${item.problem.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>
+                    <Button
+                      className={`w-full bg-${item.color} group relative overflow-hidden`}
+                    >
+                      <span className="relative z-10 flex items-center justify-center gap-2">
+                        See it in action
+                        <ArrowRight className="w-4 h-4" />
+                      </span>
+                      <div className={`absolute inset-0 bg-${item.color} transform transition-transform duration-300 group-hover:scale-x-110`} />
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </motion.div>
