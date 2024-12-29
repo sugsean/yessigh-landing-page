@@ -2,8 +2,8 @@ import { Hero } from "@/components/landing/Hero";
 import { Features } from "@/components/landing/Features";
 import { Benefits } from "@/components/landing/Benefits";
 import { ProblemSolution } from "@/components/landing/ProblemSolution";
-import { SocialImpact } from "@/components/landing/SocialImpact";
 import { Testimonials } from "@/components/landing/Testimonials";
+import { Pricing } from "@/components/landing/Pricing";
 import { Footer } from "@/components/landing/Footer";
 
 const Index = () => {
@@ -13,8 +13,8 @@ const Index = () => {
       <ProblemSolution />
       <Features />
       <Benefits />
-      <SocialImpact />
       <Testimonials />
+      <Pricing />
       <Footer />
     </div>
   );
