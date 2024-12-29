@@ -53,7 +53,7 @@ export const Hero = () => {
             >
               <h3 className="text-gray-800 font-semibold mb-1">Join Our Pioneer Program</h3>
               <p className="text-sm text-gray-700">
-                Early supporters receive a special 50% discount when joining before January 30th, 2025. Be among the first to shape the future of students wellbeing.
+                Early supporters receive a special 50% discount when joining before January 30th, 2025. Be among the first to shape the future of student wellbeing.
               </p>
             </motion.div>
 

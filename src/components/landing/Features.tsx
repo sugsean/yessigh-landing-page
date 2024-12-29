@@ -6,37 +6,37 @@ const features = [
     icon: Brain,
     title: "Real-Time Wellbeing Monitoring",
     description: "Track and respond to student and teacher wellbeing in real-time with our advanced monitoring system.",
-    color: "bg-custom-pink"
+    color: "custom-pink"
   },
   {
     icon: Users,
     title: "Personalized Support",
     description: "Tailored resources and interventions based on individual needs and circumstances.",
-    color: "bg-custom-purple"
+    color: "custom-purple"
   },
   {
     icon: Clock,
     title: "Instant Response",
     description: "Quick alerts and notifications ensure immediate attention to urgent wellbeing concerns.",
-    color: "bg-custom-blue"
+    color: "custom-blue"
   },
   {
     icon: LineChart,
     title: "Data-Driven Insights",
     description: "Make informed decisions with comprehensive analytics and trending patterns.",
-    color: "bg-custom-mint"
+    color: "custom-mint"
   },
   {
     icon: Shield,
     title: "Privacy First",
     description: "Enterprise-grade security ensuring all sensitive information remains protected.",
-    color: "bg-custom-yellow"
+    color: "custom-yellow"
   },
   {
     icon: MessageCircle,
     title: "Seamless Communication",
     description: "Foster better collaboration between students, teachers, and administrators.",
-    color: "bg-custom-pink"
+    color: "custom-pink"
   },
 ];
 
@@ -76,11 +76,11 @@ export const Features = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ scale: 1.02 }}
-              className={`p-8 rounded-2xl ${feature.color} shadow-lg hover:shadow-xl transition-all duration-300 bg-opacity-90`}
+              className={`p-6 rounded-2xl bg-${feature.color} shadow-lg hover:shadow-xl transition-all duration-300`}
             >
-              <feature.icon className="w-12 h-12 text-gray-800 mb-4" />
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">{feature.title}</h3>
-              <p className="text-gray-800 leading-relaxed">{feature.description}</p>
+              <feature.icon className="w-12 h-12 text-white mb-4" />
+              <h3 className="text-xl font-semibold mb-2 text-white">{feature.title}</h3>
+              <p className="text-white/90">{feature.description}</p>
             </motion.div>
           ))}
         </div>
