@@ -1,19 +1,10 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useToast } from "@/components/ui/use-toast";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/lib/supabase";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { SignupFormFields } from "@/components/signup/SignupFormFields";
 
 const Signup = () => {
   const [userType, setUserType] = useState<string>("");
@@ -56,7 +47,6 @@ const Signup = () => {
         description: "Thank you for joining our pioneer program. We'll be in touch soon!",
       });
       
-      // Redirect after successful submission with a slight delay to show the toast
       setTimeout(() => {
         navigate("/features/welcome");
       }, 2000);
@@ -94,123 +84,12 @@ const Signup = () => {
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="space-y-4">
-              <Label>I am a:</Label>
-              <RadioGroup
-                value={userType}
-                onValueChange={setUserType}
-                className="grid grid-cols-3 gap-4"
-              >
-                {[
-                  { value: "parent", label: "Parent" },
-                  { value: "teacher", label: "Teacher" },
-                  { value: "headteacher", label: "Head Teacher" },
-                ].map((type) => (
-                  <div key={type.value} className="flex items-center space-x-2">
-                    <RadioGroupItem value={type.value} id={type.value} />
-                    <Label htmlFor={type.value}>{type.label}</Label>
-                  </div>
-                ))}
-              </RadioGroup>
-            </div>
-
-            <div className="space-y-4">
-              <div>
-                <Label htmlFor="name">Full Name</Label>
-                <Input
-                  id="name"
-                  value={formData.name}
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
-                  placeholder="Enter your full name"
-                  required
-                />
-              </div>
-
-              <div>
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
-                  placeholder="Enter your email"
-                  required
-                />
-              </div>
-
-              <div>
-                <Label htmlFor="country">Country</Label>
-                <Select
-                  value={formData.country}
-                  onValueChange={(value) =>
-                    setFormData({ ...formData, country: value })
-                  }
-                  required
-                >
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select your country" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="uk">United Kingdom</SelectItem>
-                    <SelectItem value="us">United States</SelectItem>
-                    <SelectItem value="ca">Canada</SelectItem>
-                    <SelectItem value="au">Australia</SelectItem>
-                    <SelectItem value="nz">New Zealand</SelectItem>
-                    {/* Add more countries as needed */}
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div>
-                <Label htmlFor="school">School Name</Label>
-                <Input
-                  id="school"
-                  value={formData.school}
-                  onChange={(e) =>
-                    setFormData({ ...formData, school: e.target.value })
-                  }
-                  placeholder="Enter your school name"
-                  required
-                />
-              </div>
-
-              {userType === "teacher" && (
-                <div>
-                  <Label htmlFor="position">Teaching Position</Label>
-                  <Input
-                    id="position"
-                    value={formData.position}
-                    onChange={(e) =>
-                      setFormData({ ...formData, position: e.target.value })
-                    }
-                    placeholder="e.g., Mathematics Teacher, Year 6 Teacher"
-                    required
-                  />
-                </div>
-              )}
-
-              {userType === "parent" && (
-                <div>
-                  <Label htmlFor="childrenCount">Number of Children to Monitor</Label>
-                  <Input
-                    id="childrenCount"
-                    type="number"
-                    min="1"
-                    max="10"
-                    value={formData.childrenCount}
-                    onChange={(e) =>
-                      setFormData({ ...formData, childrenCount: e.target.value })
-                    }
-                    placeholder="Enter number of children"
-                    required
-                  />
-                </div>
-              )}
-            </div>
+            <SignupFormFields
+              userType={userType}
+              formData={formData}
+              setUserType={setUserType}
+              setFormData={setFormData}
+            />
 
             <Button
               type="submit"
