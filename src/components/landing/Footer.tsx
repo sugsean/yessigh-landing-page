@@ -1,4 +1,5 @@
 import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { motion } from "framer-motion";
 
 export const Footer = () => {
   return (
