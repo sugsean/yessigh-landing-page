@@ -6,7 +6,7 @@ export const Hero = () => {
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-b from-custom-purple/30 to-white">
       <div className="absolute inset-0 flex justify-center items-center">
         <div className="relative w-full h-full max-w-6xl">
-          <div className="absolute inset-0 grid grid-cols-3 gap-4 p-8 opacity-20">
+          <div className="absolute inset-0 grid grid-cols-3 gap-4 p-8 opacity-80">
             {[
               "lovable-uploads/1d7bcc89-81be-4631-9f34-ac229017ab94.png",
               "lovable-uploads/12f7935e-93da-4987-93f5-6cf5967c28b3.png",
@@ -18,7 +18,7 @@ export const Hero = () => {
                   alt="Student wellbeing"
                   className="w-full h-full object-cover rounded-2xl"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
               </div>
             ))}
           </div>
@@ -26,6 +26,13 @@ export const Hero = () => {
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
+        <div className="flex justify-center mb-8">
+          <img 
+            src="lovable-uploads/efeac921-24d5-43de-9e5a-29ee60b7cba7.png" 
+            alt="YesSigh Logo" 
+            className="w-24 h-24"
+          />
+        </div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

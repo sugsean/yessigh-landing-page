@@ -36,8 +36,15 @@ const features = [
 
 export const Features = () => {
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-yessigh-lightBlue/10">
+    <section className="py-24 bg-gradient-to-b from-white to-custom-mint/10">
       <div className="container mx-auto px-4">
+        <div className="flex justify-center mb-8">
+          <img 
+            src="lovable-uploads/efeac921-24d5-43de-9e5a-29ee60b7cba7.png" 
+            alt="YesSigh Logo" 
+            className="w-16 h-16 opacity-50"
+          />
+        </div>
         <div className="text-center mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -62,7 +69,7 @@ export const Features = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="p-6 rounded-2xl bg-white shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
-              <feature.icon className="w-12 h-12 text-yessigh-purple mb-4" />
+              <feature.icon className="w-12 h-12 text-custom-blue mb-4" />
               <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
               <p className="text-gray-600">{feature.description}</p>
             </motion.div>

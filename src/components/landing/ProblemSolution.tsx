@@ -23,6 +23,13 @@ export const ProblemSolution = () => {
   return (
     <section className="py-24 bg-gradient-to-b from-white to-custom-mint/20">
       <div className="container mx-auto px-4">
+        <div className="flex justify-center mb-8">
+          <img 
+            src="lovable-uploads/efeac921-24d5-43de-9e5a-29ee60b7cba7.png" 
+            alt="YesSigh Logo" 
+            className="w-16 h-16 opacity-50"
+          />
+        </div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -47,7 +54,6 @@ export const ProblemSolution = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="relative group"
             >
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="relative p-6 rounded-2xl bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
                 <div className="absolute inset-0 opacity-10">
                   <img
@@ -55,7 +61,6 @@ export const ProblemSolution = () => {
                     alt={item.problem}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 backdrop-blur-sm"></div>
                 </div>
                 <div className="relative z-10">
                   <AlertTriangle className="w-12 h-12 text-custom-pink mb-4" />
