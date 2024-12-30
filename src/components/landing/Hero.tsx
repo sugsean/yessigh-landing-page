@@ -12,7 +12,6 @@ export const Hero = () => {
 
       <div className="container mx-auto px-4 relative z-10 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left column - Text content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -22,7 +21,7 @@ export const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-2 mb-6">
               <span className="px-4 py-1.5 rounded-full bg-custom-pink/20 text-custom-pink font-medium text-sm inline-flex items-center">
                 <Heart size={16} className="mr-2" />
-                Supporting Student Wellbeing
+                Empowering Teachers & Parents
               </span>
               <span className="px-4 py-1.5 rounded-full bg-custom-yellow text-gray-800 font-medium text-sm inline-flex items-center">
                 <Clock size={16} className="mr-2" />
@@ -32,10 +31,10 @@ export const Hero = () => {
 
             <h1 className="text-4xl md:text-6xl font-bold leading-tight">
               <span className="bg-gradient-to-r from-custom-pink via-custom-purple to-custom-blue bg-clip-text text-transparent">
-                Support Every Student,
+                Empower Student Wellbeing,
               </span>
               <br />
-              <span className="text-gray-800">Build A Brighter World</span>
+              <span className="text-gray-800">Through Teacher-Parent Partnership</span>
             </h1>
 
             <div className="space-y-4 text-gray-600">
@@ -55,8 +54,8 @@ export const Hero = () => {
                 transition={{ delay: 0.4 }}
                 className="p-4 bg-white/50 rounded-lg backdrop-blur-sm"
               >
-                <h3 className="font-semibold text-gray-800 mb-2">For Students' Wellbeing:</h3>
-                <p>Help your students overcome <strong>academic pressure</strong> and <strong>emotional challenges</strong>. Through our platform, teachers and parents can provide <strong>coordinated support</strong>, enabling <strong>early intervention</strong> and creating a nurturing environment where every student can flourish, even before signs of distress appear.</p>
+                <h3 className="font-semibold text-gray-800 mb-2">Supporting Student Wellbeing Together:</h3>
+                <p>A collaborative platform where <strong>teachers and parents work together</strong> to monitor and support student wellbeing. Through our comprehensive tools, we enable <strong>early intervention</strong> and create a <strong>coordinated support system</strong> that helps identify and address challenges before they escalate, ensuring every student has the support network they need to thrive.</p>
               </motion.div>
 
               <motion.div 
@@ -66,11 +65,10 @@ export const Hero = () => {
                 className="p-4 bg-white/50 rounded-lg backdrop-blur-sm"
               >
                 <h3 className="font-semibold text-gray-800 mb-2">For Parents:</h3>
-                <p>Worried about your child's <strong>wellbeing</strong> at school? Stay connected and informed with <strong>real-time updates</strong> and <strong>proactive support</strong> that ensures your child gets the attention they need.</p>
+                <p>Stay actively involved in your child's wellbeing journey with <strong>real-time updates</strong> and <strong>direct communication</strong> with teachers. Our platform ensures you're always informed and empowered to provide the right support at the right time.</p>
               </motion.div>
             </div>
 
-            {/* Early Access Banner */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -83,7 +81,6 @@ export const Hero = () => {
               </p>
             </motion.div>
 
-            {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button
                 size="lg"
@@ -103,7 +100,6 @@ export const Hero = () => {
               </Button>
             </div>
 
-            {/* Feature Icons */}
             <div className="grid grid-cols-3 gap-4 pt-8 border-t border-gray-100">
               {[
                 { icon: Brain, text: "AI-Powered Insights" },
@@ -126,7 +122,6 @@ export const Hero = () => {
             </div>
           </motion.div>
 
-          {/* Right column - Animated illustration */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
