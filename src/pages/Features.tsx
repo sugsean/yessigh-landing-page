@@ -7,7 +7,10 @@ const features = {
   'early-warning': {
     title: 'Early Warning System',
     description: 'Identify and respond to student wellbeing concerns before they escalate',
-    images: ["lovable-uploads/0fb2804b-1703-4d9c-926b-cfbac24fb3de.png", "lovable-uploads/8039ce5b-3ee7-435d-b14d-ed7a148a29ef.png"],
+    images: [
+      "lovable-uploads/0fb2804b-1703-4d9c-926b-cfbac24fb3de.png",
+      "lovable-uploads/8039ce5b-3ee7-435d-b14d-ed7a148a29ef.png"
+    ],
     benefits: [
       'Real-time student monitoring dashboard',
       'Early intervention alerts',
@@ -16,10 +19,13 @@ const features = {
     ],
     detailedDescription: "Our early warning system uses advanced analytics to track various indicators of student wellbeing and academic performance. This helps schools identify students who might need additional support before situations become critical."
   },
-  'struggling-with-teacher-burnout': {
+  'teacher-burnout': {
     title: 'Teacher Wellbeing Support',
     description: 'Comprehensive tools and resources to support teacher mental health and effectiveness',
-    images: ["lovable-uploads/a17a8a06-5bac-43a9-8426-f3c4637c71d4.png", "lovable-uploads/884b9e7d-25b5-4db8-8cba-ce478fe65e35.png"],
+    images: [
+      "lovable-uploads/a17a8a06-5bac-43a9-8426-f3c4637c71d4.png",
+      "lovable-uploads/884b9e7d-25b5-4db8-8cba-ce478fe65e35.png"
+    ],
     benefits: [
       'Stress level monitoring',
       'Professional development tracking',
@@ -27,10 +33,12 @@ const features = {
       'Peer support network'
     ]
   },
-  'limited-visibility-into-student-wellbeing': {
+  'student-wellbeing': {
     title: 'Student Wellbeing Analytics',
     description: 'Data-driven insights for better decision making and student support',
-    images: ["lovable-uploads/293bca98-dc27-4b3d-a826-3e4fa57c6d35.png"],
+    images: [
+      "lovable-uploads/293bca98-dc27-4b3d-a826-3e4fa57c6d35.png"
+    ],
     benefits: [
       'Comprehensive analytics dashboard',
       'Trend analysis and reporting',
@@ -91,7 +99,7 @@ const Features = () => {
               className="bg-white rounded-2xl shadow-lg overflow-hidden"
             >
               <img
-                src={image}
+                src={`/${image}`}
                 alt={`${feature.title} demonstration ${index + 1}`}
                 className="w-full h-auto"
               />
