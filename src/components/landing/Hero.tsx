@@ -55,8 +55,8 @@ export const Hero = () => {
                 transition={{ delay: 0.4 }}
                 className="p-4 bg-white/50 rounded-lg backdrop-blur-sm"
               >
-                <h3 className="font-semibold text-gray-800 mb-2">For Students:</h3>
-                <p>Struggling with <strong>academic pressure</strong> or feeling <strong>disconnected</strong>? Get personalized support that helps you thrive, with <strong>early intervention</strong> and a strong support network always by your side.</p>
+                <h3 className="font-semibold text-gray-800 mb-2">For Students' Wellbeing:</h3>
+                <p>Help your students overcome <strong>academic pressure</strong> and <strong>emotional challenges</strong>. Through our platform, teachers and parents can provide <strong>coordinated support</strong>, enabling <strong>early intervention</strong> and creating a nurturing environment where every student can flourish, even before signs of distress appear.</p>
               </motion.div>
 
               <motion.div 
