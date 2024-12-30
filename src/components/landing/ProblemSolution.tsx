@@ -7,32 +7,32 @@ const problems = [
   {
     problem: "Are you missing the warning signs?",
     solution: "Real-time monitoring and early intervention system",
-    image: "lovable-uploads/556f521d-4ddb-4f38-87ab-ddc9ec55adfd.png",
+    image: "lovable-uploads/293bca98-dc27-4b3d-a826-3e4fa57c6d35.png",
     description: "Our platform helps identify potential issues before they escalate, ensuring timely intervention and support.",
     icon: AlertTriangle,
     color: "custom-pink",
     delay: 0.1,
-    demoImages: ["lovable-uploads/e581e79a-7187-4d6a-bf6c-75c337c5a74d.png", "lovable-uploads/08ba3069-c386-470c-8f02-3ff8ea52910b.png"]
+    demoImages: ["lovable-uploads/0fb2804b-1703-4d9c-926b-cfbac24fb3de.png", "lovable-uploads/8039ce5b-3ee7-435d-b14d-ed7a148a29ef.png"]
   },
   {
     problem: "Struggling with teacher burnout?",
     solution: "Comprehensive wellbeing support and resources",
-    image: "lovable-uploads/30116998-8eae-4786-a160-60dafb19bcee.png",
+    image: "lovable-uploads/fc5182e0-19b5-4c15-93f7-e6fcc3edd9d3.png",
     description: "Provide teachers with the tools and support they need to maintain their wellbeing and effectiveness.",
     icon: Battery,
     color: "custom-mint",
     delay: 0.2,
-    demoImages: ["lovable-uploads/f3fd211b-2945-4957-a2eb-acfecb4440f7.png", "lovable-uploads/9f030b06-923f-474e-b61e-a56e698da108.png"]
+    demoImages: ["lovable-uploads/a17a8a06-5bac-43a9-8426-f3c4637c71d4.png", "lovable-uploads/884b9e7d-25b5-4db8-8cba-ce478fe65e35.png"]
   },
   {
     problem: "Limited visibility into student wellbeing?",
     solution: "Data-driven insights and actionable analytics",
-    image: "lovable-uploads/a6dd2750-e8f9-479c-9eff-b8f6566f6031.png",
+    image: "lovable-uploads/d688a811-6968-414f-a763-49781870ffd2.png",
     description: "Get clear insights into student wellbeing trends and make informed decisions with our comprehensive analytics.",
     icon: ChartBar,
     color: "custom-purple",
     delay: 0.3,
-    demoImages: ["lovable-uploads/ebac6bfa-f560-47bc-bdf6-c2417d3e959f.png"]
+    demoImages: ["lovable-uploads/293bca98-dc27-4b3d-a826-3e4fa57c6d35.png"]
   },
 ];
 

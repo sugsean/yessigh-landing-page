@@ -1,85 +1,144 @@
-import { useParams } from "react-router-dom";
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
-import { ArrowLeft, CheckCircle2 } from "lucide-react";
+import { useParams } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+import { ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+const features = {
+  'are-you-missing-the-warning-signs': {
+    title: 'Early Warning System',
+    description: 'Identify and respond to student wellbeing concerns before they escalate',
+    images: ["lovable-uploads/0fb2804b-1703-4d9c-926b-cfbac24fb3de.png", "lovable-uploads/8039ce5b-3ee7-435d-b14d-ed7a148a29ef.png"],
+    benefits: [
+      'Real-time student monitoring dashboard',
+      'Early intervention alerts',
+      'Behavioral pattern recognition',
+      'Customizable warning thresholds'
+    ]
+  },
+  'struggling-with-teacher-burnout': {
+    title: 'Teacher Wellbeing Support',
+    description: 'Comprehensive tools and resources to support teacher mental health and effectiveness',
+    images: ["lovable-uploads/a17a8a06-5bac-43a9-8426-f3c4637c71d4.png", "lovable-uploads/884b9e7d-25b5-4db8-8cba-ce478fe65e35.png"],
+    benefits: [
+      'Stress level monitoring',
+      'Professional development tracking',
+      'Workload management tools',
+      'Peer support network'
+    ]
+  },
+  'limited-visibility-into-student-wellbeing': {
+    title: 'Student Wellbeing Analytics',
+    description: 'Data-driven insights for better decision making and student support',
+    images: ["lovable-uploads/293bca98-dc27-4b3d-a826-3e4fa57c6d35.png"],
+    benefits: [
+      'Comprehensive analytics dashboard',
+      'Trend analysis and reporting',
+      'Custom metric tracking',
+      'Actionable insights generation'
+    ]
+  }
+};
 
 const Features = () => {
-  const { id } = useParams();
-  const navigate = useNavigate();
+  const { featureId } = useParams();
+  const feature = features[featureId as keyof typeof features];
 
-  if (id === "welcome") {
+  if (!feature) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-white to-custom-mint/20 py-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="container max-w-2xl mx-auto px-4"
-        >
-          <div className="text-center mb-8">
-            <img 
-              src="/lovable-uploads/d21ed953-3c6f-49a6-b6cf-6f61a335c827.png" 
-              alt="YesSigh Logo" 
-              className="mx-auto h-20 mb-6"
-            />
-          </div>
-
-          <div className="bg-white rounded-2xl shadow-xl p-8 text-center">
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.2, type: "spring", stiffness: 100 }}
-              className="mb-6"
-            >
-              <CheckCircle2 className="w-16 h-16 mx-auto text-green-500" />
-            </motion.div>
-
-            <h1 className="text-3xl font-bold mb-4">Welcome to YesSigh!</h1>
-            <p className="text-gray-600 mb-8">
-              Thank you for joining our pioneer program. We're excited to have you on board!
-              Our team will review your application and get back to you shortly with next steps.
-            </p>
-
-            <div className="space-y-4">
-              <div className="p-4 bg-custom-mint/20 rounded-lg">
-                <h2 className="font-semibold mb-2">What's Next?</h2>
-                <ul className="text-left text-gray-600 space-y-2">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0" />
-                    <span>We'll review your application within 24-48 hours</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0" />
-                    <span>You'll receive an email with access instructions</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0" />
-                    <span>Our team will schedule an onboarding call</span>
-                  </li>
-                </ul>
-              </div>
-
-              <Button
-                onClick={() => navigate("/")}
-                variant="outline"
-                className="w-full gap-2"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                Return to Homepage
-              </Button>
-            </div>
-          </div>
-
-          <p className="text-sm text-gray-500 text-center mt-8">
-            Questions? Contact us at support@yessigh.com
-          </p>
-        </motion.div>
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold mb-4">Feature not found</h1>
+          <Link to="/">
+            <Button>
+              <ArrowLeft className="mr-2" />
+              Return Home
+            </Button>
+          </Link>
+        </div>
       </div>
     );
   }
 
-  return null;
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+      <div className="container mx-auto px-4 py-12">
+        <Link to="/" className="inline-block mb-8">
+          <Button variant="ghost" className="group">
+            <ArrowLeft className="mr-2 group-hover:-translate-x-1 transition-transform" />
+            Back to Home
+          </Button>
+        </Link>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h1 className="text-4xl font-bold mb-6">{feature.title}</h1>
+          <p className="text-xl text-gray-600 mb-12 max-w-3xl">
+            {feature.description}
+          </p>
+        </motion.div>
+
+        <div className="grid gap-8 mb-12">
+          {feature.images.map((image, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              className="bg-white rounded-2xl shadow-lg overflow-hidden"
+            >
+              <img
+                src={image}
+                alt={`${feature.title} demonstration ${index + 1}`}
+                className="w-full h-auto"
+              />
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="bg-white rounded-2xl shadow-lg p-8"
+        >
+          <h2 className="text-2xl font-bold mb-6">Key Benefits</h2>
+          <div className="grid gap-4">
+            {feature.benefits.map((benefit, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: 0.6 + (index * 0.1) }}
+                className="flex items-center gap-4 p-4 rounded-lg bg-gray-50"
+              >
+                <div className="h-2 w-2 rounded-full bg-custom-purple" />
+                <p className="text-gray-700">{benefit}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="mt-12 text-center"
+        >
+          <Button
+            size="lg"
+            className="bg-custom-purple hover:bg-custom-purple/90 text-white px-8 py-6 rounded-full"
+            onClick={() => window.open('https://calendly.com/shawnweb2020/yessigh-introduction-and-demo', '_blank')}
+          >
+            Schedule a Demo
+          </Button>
+        </motion.div>
+      </div>
+    </div>
+  );
 };
 
 export default Features;
