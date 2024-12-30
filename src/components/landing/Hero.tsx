@@ -5,13 +5,11 @@ import { ArrowRight, Heart, Brain, Users, Clock } from "lucide-react";
 export const Hero = () => {
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-b from-white to-custom-mint/20">
-      {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-custom-pink/20 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-10 w-72 h-72 bg-custom-purple/20 rounded-full blur-3xl" />
       </div>
 
-      {/* Main content container */}
       <div className="container mx-auto px-4 relative z-10 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left column - Text content */}
@@ -70,6 +68,7 @@ export const Hero = () => {
                 variant="outline"
                 size="lg"
                 className="border-2 border-custom-purple text-custom-purple hover:bg-custom-purple/10 px-8 py-6 rounded-full transition-all duration-300 hover:shadow-lg"
+                onClick={() => window.open('https://calendly.com/shawnweb2020/yessigh-introduction-and-demo', '_blank')}
               >
                 Book a Demo
               </Button>
@@ -97,7 +96,6 @@ export const Hero = () => {
             </div>
           </motion.div>
 
-          {/* Right column - Decorative elements */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
