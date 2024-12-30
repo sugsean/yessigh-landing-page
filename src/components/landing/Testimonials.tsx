@@ -6,21 +6,21 @@ const testimonials = [
     quote: "YesSigh's approach to student wellbeing monitoring will revolutionize how we support our school community. The potential impact on early intervention is incredible.",
     author: "Sarah Johnson",
     role: "School Principal",
-    image: "https://images.unsplash.com/photo-1438565434616-3ef039228b15",
+    image: "/lovable-uploads/70eace88-71a0-456c-84e0-4f3aecf20f03.png",
     color: "custom-pink"
   },
   {
     quote: "Having previewed the platform, I can see how real-time support and comprehensive resources will transform my classroom management approach.",
     author: "Michael Chen",
     role: "High School Teacher",
-    image: "https://images.unsplash.com/photo-1501286353178-1ec881214838",
+    image: "/lovable-uploads/f397f1c2-83ef-4111-8dbd-96d9efa8791c.png",
     color: "custom-mint"
   },
   {
     quote: "The innovative approach to wellbeing monitoring and support will make a significant difference in how we identify and assist students who need help.",
     author: "Emma Thompson",
     role: "School Counselor",
-    image: "https://images.unsplash.com/photo-1721322800607-8c38375eef04",
+    image: "/lovable-uploads/ebac6bfa-f560-47bc-bdf6-c2417d3e959f.png",
     color: "custom-purple"
   },
 ];
