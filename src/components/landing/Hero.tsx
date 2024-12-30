@@ -110,18 +110,48 @@ export const Hero = () => {
             <div className="relative z-10 text-center space-y-4">
               <motion.div
                 initial={{ scale: 0.8 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
+                animate={{ 
+                  scale: [0.8, 1.1, 1],
+                  rotate: [0, 5, -5, 0]
+                }}
+                transition={{ 
+                  duration: 2,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  ease: "easeInOut"
+                }}
                 className="w-24 h-24 bg-custom-mint/20 rounded-full flex items-center justify-center mx-auto"
               >
-                <Heart className="w-12 h-12 text-custom-pink" />
+                <motion.div
+                  animate={{ 
+                    scale: [1, 1.1, 1],
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    ease: "easeInOut"
+                  }}
+                >
+                  <Heart className="w-12 h-12 text-custom-pink" />
+                </motion.div>
               </motion.div>
-              <h3 className="text-2xl font-bold text-gray-800">
+              <motion.h3 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="text-2xl font-bold text-gray-800"
+              >
                 Empowering Education
-              </h3>
-              <p className="text-gray-600 max-w-md mx-auto">
+              </motion.h3>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7 }}
+                className="text-gray-600 max-w-md mx-auto"
+              >
                 Join us in creating a supportive environment where every student can thrive
-              </p>
+              </motion.p>
             </div>
           </motion.div>
         </div>
