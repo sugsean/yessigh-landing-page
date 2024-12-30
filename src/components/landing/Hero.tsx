@@ -38,9 +38,37 @@ export const Hero = () => {
               <span className="text-gray-800">Build A Brighter World</span>
             </h1>
 
-            <p className="text-lg text-gray-600 max-w-xl">
-              Real-time wellbeing monitoring, personalized support, and data-driven insights for schools that care about their community's mental health.
-            </p>
+            <div className="space-y-4 text-gray-600">
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="p-4 bg-white/50 rounded-lg backdrop-blur-sm"
+              >
+                <h3 className="font-semibold text-gray-800 mb-2">For Teachers:</h3>
+                <p>Facing <strong>overwhelming workload</strong> and <strong>burnout</strong>? Our platform helps you focus on what matters most - teaching. With <strong>real-time insights</strong> and <strong>automated monitoring</strong>, spend less time on admin and more time making a difference.</p>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="p-4 bg-white/50 rounded-lg backdrop-blur-sm"
+              >
+                <h3 className="font-semibold text-gray-800 mb-2">For Students:</h3>
+                <p>Struggling with <strong>academic pressure</strong> or feeling <strong>disconnected</strong>? Get personalized support that helps you thrive, with <strong>early intervention</strong> and a strong support network always by your side.</p>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="p-4 bg-white/50 rounded-lg backdrop-blur-sm"
+              >
+                <h3 className="font-semibold text-gray-800 mb-2">For Parents:</h3>
+                <p>Worried about your child's <strong>wellbeing</strong> at school? Stay connected and informed with <strong>real-time updates</strong> and <strong>proactive support</strong> that ensures your child gets the attention they need.</p>
+              </motion.div>
+            </div>
 
             {/* Early Access Banner */}
             <motion.div 
@@ -55,6 +83,7 @@ export const Hero = () => {
               </p>
             </motion.div>
 
+            {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button
                 size="lg"
@@ -74,6 +103,7 @@ export const Hero = () => {
               </Button>
             </div>
 
+            {/* Feature Icons */}
             <div className="grid grid-cols-3 gap-4 pt-8 border-t border-gray-100">
               {[
                 { icon: Brain, text: "AI-Powered Insights" },
@@ -96,6 +126,7 @@ export const Hero = () => {
             </div>
           </motion.div>
 
+          {/* Right column - Animated illustration */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
