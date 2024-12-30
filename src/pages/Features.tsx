@@ -1,11 +1,10 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 const features = {
-  'are-you-missing-the-warning-signs': {
+  'early-warning': {
     title: 'Early Warning System',
     description: 'Identify and respond to student wellbeing concerns before they escalate',
     images: ["lovable-uploads/0fb2804b-1703-4d9c-926b-cfbac24fb3de.png", "lovable-uploads/8039ce5b-3ee7-435d-b14d-ed7a148a29ef.png"],
@@ -14,7 +13,8 @@ const features = {
       'Early intervention alerts',
       'Behavioral pattern recognition',
       'Customizable warning thresholds'
-    ]
+    ],
+    detailedDescription: "Our early warning system uses advanced analytics to track various indicators of student wellbeing and academic performance. This helps schools identify students who might need additional support before situations become critical."
   },
   'struggling-with-teacher-burnout': {
     title: 'Teacher Wellbeing Support',
@@ -41,8 +41,8 @@ const features = {
 };
 
 const Features = () => {
-  const { featureId } = useParams();
-  const feature = features[featureId as keyof typeof features];
+  const { id } = useParams();
+  const feature = features[id as keyof typeof features];
 
   if (!feature) {
     return (

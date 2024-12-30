@@ -5,16 +5,28 @@ import { Button } from "../ui/button";
 
 const problems = [
   {
+    id: "early-warning",
     problem: "Are you missing the warning signs?",
     solution: "Real-time monitoring and early intervention system",
     image: "lovable-uploads/293bca98-dc27-4b3d-a826-3e4fa57c6d35.png",
     description: "Our platform helps identify potential issues before they escalate, ensuring timely intervention and support.",
+    detailedDescription: "Using advanced analytics and real-time monitoring, we help schools identify students who might need additional support before situations become critical. Our early warning system tracks various indicators of student wellbeing and academic performance.",
     icon: AlertTriangle,
     color: "custom-pink",
     delay: 0.1,
-    demoImages: ["lovable-uploads/0fb2804b-1703-4d9c-926b-cfbac24fb3de.png", "lovable-uploads/8039ce5b-3ee7-435d-b14d-ed7a148a29ef.png"]
+    benefits: [
+      "Real-time student monitoring dashboard",
+      "Early intervention alerts",
+      "Behavioral pattern recognition",
+      "Customizable warning thresholds"
+    ],
+    demoImages: [
+      "lovable-uploads/0fb2804b-1703-4d9c-926b-cfbac24fb3de.png", 
+      "lovable-uploads/8039ce5b-3ee7-435d-b14d-ed7a148a29ef.png"
+    ]
   },
   {
+    id: "teacher-burnout",
     problem: "Struggling with teacher burnout?",
     solution: "Comprehensive wellbeing support and resources",
     image: "lovable-uploads/fc5182e0-19b5-4c15-93f7-e6fcc3edd9d3.png",
@@ -22,9 +34,19 @@ const problems = [
     icon: Battery,
     color: "custom-mint",
     delay: 0.2,
-    demoImages: ["lovable-uploads/a17a8a06-5bac-43a9-8426-f3c4637c71d4.png", "lovable-uploads/884b9e7d-25b5-4db8-8cba-ce478fe65e35.png"]
+    benefits: [
+      "Stress level monitoring",
+      "Professional development tracking",
+      "Workload management tools",
+      "Peer support network"
+    ],
+    demoImages: [
+      "lovable-uploads/a17a8a06-5bac-43a9-8426-f3c4637c71d4.png", 
+      "lovable-uploads/884b9e7d-25b5-4db8-8cba-ce478fe65e35.png"
+    ]
   },
   {
+    id: "student-wellbeing",
     problem: "Limited visibility into student wellbeing?",
     solution: "Data-driven insights and actionable analytics",
     image: "lovable-uploads/d688a811-6968-414f-a763-49781870ffd2.png",
@@ -32,7 +54,15 @@ const problems = [
     icon: ChartBar,
     color: "custom-purple",
     delay: 0.3,
-    demoImages: ["lovable-uploads/293bca98-dc27-4b3d-a826-3e4fa57c6d35.png"]
+    benefits: [
+      "Comprehensive analytics dashboard",
+      "Trend analysis and reporting",
+      "Custom metric tracking",
+      "Actionable insights generation"
+    ],
+    demoImages: [
+      "lovable-uploads/293bca98-dc27-4b3d-a826-3e4fa57c6d35.png"
+    ]
   },
 ];
 
@@ -57,14 +87,14 @@ export const ProblemSolution = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {problems.map((item) => (
             <motion.div
-              key={item.problem}
+              key={item.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: item.delay }}
               className="group"
             >
-              <div className={`bg-${item.color}/5 rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl border border-${item.color}/20 h-full`}>
+              <div className={`bg-${item.color}/5 rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl border border-${item.color}/20 h-full flex flex-col`}>
                 <div className="relative h-64">
                   <img
                     src={item.image}
@@ -78,15 +108,18 @@ export const ProblemSolution = () => {
                     </h3>
                   </div>
                 </div>
-                <div className="p-6">
-                  <div className="flex items-start gap-3 mb-4">
+                <div className="p-6 flex-grow flex flex-col">
+                  <div className="flex items-start gap-3 mb-4 flex-grow">
                     <item.icon className={`w-6 h-6 text-${item.color} flex-shrink-0 mt-1`} />
                     <div>
                       <p className={`font-semibold text-${item.color} mb-2`}>{item.solution}</p>
                       <p className="text-gray-600">{item.description}</p>
                     </div>
                   </div>
-                  <Link to={`/features/${item.problem.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>
+                  <Link 
+                    to={`/features/${item.id}`} 
+                    className="mt-4"
+                  >
                     <Button
                       className={`w-full bg-${item.color} hover:bg-${item.color}/90 text-white group relative overflow-hidden`}
                     >
