@@ -28,6 +28,20 @@ export const SignupModal = ({ isOpen, onClose, userType }: SignupModalProps) => 
   const { toast } = useToast();
   const navigate = useNavigate();
 
+  const sendWelcomeEmail = async (name: string, email: string, userType: string) => {
+    try {
+      const { error } = await supabase.functions.invoke('send-welcome-email', {
+        body: { name, email, userType }
+      });
+
+      if (error) {
+        console.error('Error sending welcome email:', error);
+      }
+    } catch (error) {
+      console.error('Error invoking welcome email function:', error);
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -52,9 +66,12 @@ export const SignupModal = ({ isOpen, onClose, userType }: SignupModalProps) => 
 
       if (error) throw error;
 
+      // Send welcome email
+      await sendWelcomeEmail(formData.name, formData.email, userType);
+
       toast({
         title: "Registration Successful!",
-        description: "Thank you for joining our pioneer program. We'll be in touch soon!",
+        description: "Thank you for joining our pioneer program. Check your email for next steps!",
       });
       
       onClose();
