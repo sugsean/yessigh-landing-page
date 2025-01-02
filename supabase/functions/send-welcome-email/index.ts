@@ -21,7 +21,10 @@ serve(async (req) => {
   }
 
   try {
+    console.log('Received request to send welcome email');
     const { name, email, userType } = await req.json() as EmailData
+
+    console.log('Sending email to:', email);
 
     const welcomeHtml = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -55,6 +58,7 @@ serve(async (req) => {
     })
 
     const data = await res.json()
+    console.log('Resend API response:', data);
     
     return new Response(JSON.stringify(data), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },

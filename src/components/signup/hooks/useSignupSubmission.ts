@@ -22,15 +22,21 @@ export const useSignupSubmission = (onClose: () => void) => {
 
   const sendWelcomeEmail = async (name: string, email: string, userType: string) => {
     try {
-      const { error } = await supabase.functions.invoke('send-welcome-email', {
+      console.log('Sending welcome email to:', email);
+      const { data, error } = await supabase.functions.invoke('send-welcome-email', {
         body: { name, email, userType }
       });
 
       if (error) {
         console.error('Error sending welcome email:', error);
+        throw error;
       }
+
+      console.log('Welcome email sent successfully:', data);
+      return data;
     } catch (error) {
       console.error('Error invoking welcome email function:', error);
+      throw error;
     }
   };
 
@@ -38,7 +44,8 @@ export const useSignupSubmission = (onClose: () => void) => {
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase
+      // First, save to database
+      const { error: dbError } = await supabase
         .from('signups')
         .insert([
           {
@@ -55,8 +62,9 @@ export const useSignupSubmission = (onClose: () => void) => {
           }
         ]);
 
-      if (error) throw error;
+      if (dbError) throw dbError;
 
+      // Then, send welcome email
       await sendWelcomeEmail(formData.name, formData.email, userType);
 
       toast({
@@ -69,6 +77,7 @@ export const useSignupSubmission = (onClose: () => void) => {
         navigate("/features/welcome");
       }, 2000);
     } catch (error) {
+      console.error('Signup error:', error);
       toast({
         title: "Registration Failed",
         description: "There was an error submitting your registration. Please try again.",
