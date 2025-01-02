@@ -19,11 +19,11 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
+    copyPublicDir: true,
     rollupOptions: {
       input: {
         main: path.resolve(__dirname, 'index.html'),
       },
     },
-    copyPublicDir: true,
   },
 }));
