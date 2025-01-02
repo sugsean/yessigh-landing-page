@@ -1,4 +1,4 @@
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { SignupFormFields } from "./SignupFormFields";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -70,13 +70,13 @@ export const SignupModal = ({ isOpen, onClose }: SignupModalProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto">
+        <DialogTitle className="text-center text-2xl font-bold">Join Our Pioneer Program</DialogTitle>
         <div className="text-center mb-8">
           <img 
             src="/lovable-uploads/d21ed953-3c6f-49a6-b6cf-6f61a335c827.png" 
             alt="YesSigh Logo" 
             className="mx-auto h-20 mb-6"
           />
-          <h2 className="text-3xl font-bold mb-2">Join Our Pioneer Program</h2>
           <p className="text-gray-600">
             Get 50% off until January 30th, 2025
           </p>
