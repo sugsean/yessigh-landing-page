@@ -7,6 +7,10 @@ import { SignupModal } from "../signup/SignupModal";
 export const Hero = () => {
   const [isSignupOpen, setIsSignupOpen] = useState(false);
 
+  const handleJoinClick = () => {
+    window.location.href = "https://yessigh.outseta.com/auth?widgetMode=register#o-anonymous";
+  };
+
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-b from-white to-custom-mint/20">
       <div className="absolute inset-0 overflow-hidden">
@@ -89,7 +93,7 @@ export const Hero = () => {
               <Button
                 size="lg"
                 className="bg-custom-pink hover:bg-custom-pink/90 text-white px-8 py-6 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg group"
-                onClick={() => setIsSignupOpen(true)}
+                onClick={handleJoinClick}
               >
                 Join Pioneer Program
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
