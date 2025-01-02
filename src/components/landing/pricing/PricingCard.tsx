@@ -34,7 +34,7 @@ export const PricingCard = ({ plan, index, isUK }: PricingCardProps) => {
 
     return (
       <Button asChild className={buttonClass}>
-        <Link to="/signup">Get Started</Link>
+        <a href="https://yessigh.outseta.com/auth?widgetMode=register&planUid=EWBZ5rWr&planPaymentTerm=month&skipPlanOptions=true#o-anonymous" target="_blank" rel="noopener noreferrer">Get Started</a>
       </Button>
     );
   };
