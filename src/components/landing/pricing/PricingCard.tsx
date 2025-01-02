@@ -1,6 +1,7 @@
 import { Check, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   Tooltip,
   TooltipContent,
@@ -18,6 +19,24 @@ export const PricingCard = ({ plan, index, isUK }: PricingCardProps) => {
   const formatPrice = (price: string | number) => {
     if (typeof price === "string") return price;
     return isUK ? `£${price}` : `$${Math.round(price * 1.25)}`;
+  };
+
+  const renderButton = () => {
+    const buttonClass = `w-full bg-gradient-to-r from-${plan.color} to-custom-purple hover:opacity-90 text-white font-semibold`;
+    
+    if (typeof plan.price === "string") {
+      return (
+        <Button className={buttonClass}>
+          Contact Sales
+        </Button>
+      );
+    }
+
+    return (
+      <Button asChild className={buttonClass}>
+        <Link to="/signup">Get Started</Link>
+      </Button>
+    );
   };
 
   return (
@@ -47,11 +66,7 @@ export const PricingCard = ({ plan, index, isUK }: PricingCardProps) => {
             <span className="text-sm text-gray-600">/month</span>
           )}
         </div>
-        <Button 
-          className={`w-full bg-gradient-to-r from-${plan.color} to-custom-purple hover:opacity-90 text-white font-semibold`}
-        >
-          {typeof plan.price === "string" ? "Contact Sales" : "Get Started"}
-        </Button>
+        {renderButton()}
       </div>
       <div className="p-6">
         <p className="text-sm text-gray-700 mb-4 leading-relaxed">{plan.description}</p>
