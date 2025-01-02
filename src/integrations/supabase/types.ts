@@ -167,6 +167,57 @@ export type Database = {
         }
         Relationships: []
       }
+      school_profiles: {
+        Row: {
+          address: string | null
+          city: string | null
+          contact_email: string | null
+          contact_person_name: string | null
+          contact_phone: string | null
+          country: string
+          created_at: string
+          grade_levels: string[] | null
+          id: string
+          name: string
+          staff_count: number | null
+          student_count: number | null
+          type_of_school: string | null
+          updated_at: string
+        }
+        Insert: {
+          address?: string | null
+          city?: string | null
+          contact_email?: string | null
+          contact_person_name?: string | null
+          contact_phone?: string | null
+          country: string
+          created_at?: string
+          grade_levels?: string[] | null
+          id?: string
+          name: string
+          staff_count?: number | null
+          student_count?: number | null
+          type_of_school?: string | null
+          updated_at?: string
+        }
+        Update: {
+          address?: string | null
+          city?: string | null
+          contact_email?: string | null
+          contact_person_name?: string | null
+          contact_phone?: string | null
+          country?: string
+          created_at?: string
+          grade_levels?: string[] | null
+          id?: string
+          name?: string
+          staff_count?: number | null
+          student_count?: number | null
+          type_of_school?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       secrets: {
         Row: {
           created_at: string | null
@@ -194,10 +245,13 @@ export type Database = {
           country: string
           created_at: string
           email: string
+          grade_levels: string[] | null
           id: string
           name: string
           position: string | null
           school: string | null
+          school_type: string | null
+          staff_count: number | null
           user_type: string
         }
         Insert: {
@@ -205,10 +259,13 @@ export type Database = {
           country: string
           created_at?: string
           email: string
+          grade_levels?: string[] | null
           id?: string
           name: string
           position?: string | null
           school?: string | null
+          school_type?: string | null
+          staff_count?: number | null
           user_type: string
         }
         Update: {
@@ -216,10 +273,13 @@ export type Database = {
           country?: string
           created_at?: string
           email?: string
+          grade_levels?: string[] | null
           id?: string
           name?: string
           position?: string | null
           school?: string | null
+          school_type?: string | null
+          staff_count?: number | null
           user_type?: string
         }
         Relationships: []
@@ -317,6 +377,7 @@ export type Database = {
           recent_achievements: Json | null
           role: string | null
           specialization: string[] | null
+          student_count: number | null
           subject: string | null
           teaching_certifications: Json | null
           teaching_philosophy: string | null
@@ -353,6 +414,7 @@ export type Database = {
           recent_achievements?: Json | null
           role?: string | null
           specialization?: string[] | null
+          student_count?: number | null
           subject?: string | null
           teaching_certifications?: Json | null
           teaching_philosophy?: string | null
@@ -389,6 +451,7 @@ export type Database = {
           recent_achievements?: Json | null
           role?: string | null
           specialization?: string[] | null
+          student_count?: number | null
           subject?: string | null
           teaching_certifications?: Json | null
           teaching_philosophy?: string | null

@@ -9,10 +9,10 @@ import { useNavigate } from "react-router-dom";
 interface SignupModalProps {
   isOpen: boolean;
   onClose: () => void;
+  userType: 'parent' | 'teacher' | 'school';
 }
 
-export const SignupModal = ({ isOpen, onClose }: SignupModalProps) => {
-  const [userType, setUserType] = useState<string>("");
+export const SignupModal = ({ isOpen, onClose, userType }: SignupModalProps) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -20,6 +20,9 @@ export const SignupModal = ({ isOpen, onClose }: SignupModalProps) => {
     position: "",
     childrenCount: "1",
     country: "",
+    schoolType: "",
+    gradeLevels: [],
+    staffCount: 0
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
@@ -41,7 +44,9 @@ export const SignupModal = ({ isOpen, onClose }: SignupModalProps) => {
             position: userType === 'teacher' ? formData.position : null,
             children_count: userType === 'parent' ? parseInt(formData.childrenCount) : null,
             country: formData.country,
-            created_at: new Date().toISOString(),
+            school_type: userType === 'school' ? formData.schoolType : null,
+            grade_levels: userType === 'school' ? formData.gradeLevels : null,
+            staff_count: userType === 'school' ? formData.staffCount : null
           }
         ]);
 
@@ -67,10 +72,23 @@ export const SignupModal = ({ isOpen, onClose }: SignupModalProps) => {
     }
   };
 
+  const getTitle = () => {
+    switch (userType) {
+      case 'school':
+        return 'School Registration';
+      case 'teacher':
+        return 'Teacher Registration';
+      case 'parent':
+        return 'Parent Registration';
+      default:
+        return 'Join Our Pioneer Program';
+    }
+  };
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto">
-        <DialogTitle className="text-center text-2xl font-bold">Join Our Pioneer Program</DialogTitle>
+        <DialogTitle className="text-center text-2xl font-bold">{getTitle()}</DialogTitle>
         <div className="text-center mb-8">
           <img 
             src="/lovable-uploads/d21ed953-3c6f-49a6-b6cf-6f61a335c827.png" 
@@ -86,7 +104,6 @@ export const SignupModal = ({ isOpen, onClose }: SignupModalProps) => {
           <SignupFormFields
             userType={userType}
             formData={formData}
-            setUserType={setUserType}
             setFormData={setFormData}
           />
 
