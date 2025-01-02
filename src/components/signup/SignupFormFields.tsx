@@ -12,21 +12,20 @@ interface SignupFormFieldsProps {
     position: string;
     childrenCount: string;
     country: string;
+    schoolType: string;
+    gradeLevels: string[];
+    staffCount: number;
   };
-  setUserType: (value: string) => void;
   setFormData: (value: any) => void;
 }
 
 export const SignupFormFields = ({
   userType,
   formData,
-  setUserType,
   setFormData,
 }: SignupFormFieldsProps) => {
   return (
     <div className="space-y-6">
-      <UserTypeSelector userType={userType} setUserType={setUserType} />
-
       <div className="space-y-4">
         <BasicInfoFields formData={formData} setFormData={setFormData} />
         

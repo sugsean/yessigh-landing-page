@@ -208,7 +208,8 @@ export const Hero = () => {
 
       <SignupModal 
         isOpen={isSignupOpen} 
-        onClose={() => setIsSignupOpen(false)} 
+        onClose={() => setIsSignupOpen(false)}
+        userType="parent"  // Add default userType
       />
     </section>
   );
