@@ -12,7 +12,7 @@ export const Pricing = () => {
   }, []);
 
   return (
-    <section className="py-12 bg-gradient-to-b from-custom-mint/20 via-custom-yellow/10 to-custom-purple/20">
+    <section id="pricing" className="py-12 bg-gradient-to-b from-custom-mint/20 via-custom-yellow/10 to-custom-purple/20">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

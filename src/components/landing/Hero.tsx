@@ -25,7 +25,7 @@ export const Hero = () => {
   }, [navigate]);
 
   const scrollToPricing = () => {
-    const pricingSection = document.querySelector('section:has(h2:contains("Transparent, Ethical Pricing"))');
+    const pricingSection = document.getElementById('pricing');
     if (pricingSection) {
       pricingSection.scrollIntoView({ behavior: 'smooth' });
     }
