@@ -69,9 +69,22 @@ export const PricingCard = ({ plan, index, isUK }: PricingCardProps) => {
             <p className="text-sm text-gray-700 mb-3 italic">{plan.ethicalApproach}</p>
           )}
           <div className="mb-4">
-            <span className="text-3xl font-bold text-gray-800">{formatPrice(plan.price)}</span>
-            {typeof plan.price === "number" && (
-              <span className="text-sm text-gray-600">/month</span>
+            {typeof plan.price === "number" ? (
+              <div className="flex flex-col">
+                <span className="text-lg text-gray-500 line-through mb-1">
+                  {formatPrice(plan.price)}/month
+                </span>
+                <span className="text-3xl font-bold text-gray-800">
+                  {formatPrice(plan.price / 2)}/month
+                </span>
+                <span className="text-sm text-custom-pink font-medium mt-1">
+                  50% off until Jan 30th, 2025
+                </span>
+              </div>
+            ) : (
+              <span className="text-3xl font-bold text-gray-800">
+                {formatPrice(plan.price)}
+              </span>
             )}
           </div>
           {renderButton()}
