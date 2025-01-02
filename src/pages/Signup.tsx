@@ -15,6 +15,9 @@ const Signup = () => {
     position: "",
     childrenCount: "1",
     country: "",
+    schoolType: "", // Added missing field
+    gradeLevels: [], // Added missing field
+    staffCount: 0, // Added missing field
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
@@ -36,6 +39,9 @@ const Signup = () => {
             position: userType === 'teacher' ? formData.position : null,
             children_count: userType === 'parent' ? parseInt(formData.childrenCount) : null,
             country: formData.country,
+            school_type: userType === 'school' ? formData.schoolType : null,
+            grade_levels: userType === 'school' ? formData.gradeLevels : null,
+            staff_count: userType === 'school' ? formData.staffCount : null,
             created_at: new Date().toISOString(),
           }
         ]);
@@ -87,7 +93,6 @@ const Signup = () => {
             <SignupFormFields
               userType={userType}
               formData={formData}
-              setUserType={setUserType}
               setFormData={setFormData}
             />
 
