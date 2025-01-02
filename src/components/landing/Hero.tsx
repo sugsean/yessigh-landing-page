@@ -1,14 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, Heart, Brain, Users, Clock } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { SignupModal } from "../signup/SignupModal";
 
 export const Hero = () => {
-  const navigate = useNavigate();
-
-  const handleSignupClick = () => {
-    navigate('/signup');
-  };
+  const [isSignupOpen, setIsSignupOpen] = useState(false);
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-b from-white to-custom-mint/20">
@@ -92,7 +89,7 @@ export const Hero = () => {
               <Button
                 size="lg"
                 className="bg-custom-pink hover:bg-custom-pink/90 text-white px-8 py-6 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg group"
-                onClick={handleSignupClick}
+                onClick={() => setIsSignupOpen(true)}
               >
                 Join Pioneer Program
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -189,6 +186,11 @@ export const Hero = () => {
           </motion.div>
         </div>
       </div>
+
+      <SignupModal 
+        isOpen={isSignupOpen} 
+        onClose={() => setIsSignupOpen(false)} 
+      />
     </section>
   );
 };
