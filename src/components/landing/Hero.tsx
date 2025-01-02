@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 export const Hero = () => {
   const [isSignupOpen, setIsSignupOpen] = useState(false);
+  const [userType, setUserType] = useState<'parent' | 'teacher' | 'school'>('parent');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -209,7 +210,7 @@ export const Hero = () => {
       <SignupModal 
         isOpen={isSignupOpen} 
         onClose={() => setIsSignupOpen(false)}
-        userType="parent"  // Add default userType
+        userType={userType}
       />
     </section>
   );
