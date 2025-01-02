@@ -1,11 +1,26 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, Heart, Brain, Users, Clock } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { SignupModal } from "../signup/SignupModal";
+import { supabase } from "@/integrations/supabase/client";
+import { useNavigate } from "react-router-dom";
 
 export const Hero = () => {
   const [isSignupOpen, setIsSignupOpen] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === 'SIGNED_IN') {
+        navigate('/profile');
+      }
+    });
+
+    return () => {
+      authListener.subscription.unsubscribe();
+    };
+  }, [navigate]);
 
   const handleJoinClick = () => {
     window.location.href = "https://yessigh.outseta.com/auth?widgetMode=register#o-anonymous";
