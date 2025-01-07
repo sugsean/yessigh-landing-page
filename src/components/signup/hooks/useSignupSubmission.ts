@@ -36,7 +36,8 @@ export const useSignupSubmission = (onClose: () => void) => {
       return data;
     } catch (error) {
       console.error('Error invoking welcome email function:', error);
-      throw error;
+      // Don't throw the error here, just log it
+      return null;
     }
   };
 
@@ -62,10 +63,13 @@ export const useSignupSubmission = (onClose: () => void) => {
           }
         ]);
 
-      if (dbError) throw dbError;
+      if (dbError) {
+        console.error('Database error:', dbError);
+        throw dbError;
+      }
 
-      // Then, send welcome email
-      await sendWelcomeEmail(formData.name, formData.email, userType);
+      // Then, try to send welcome email (but don't block on it)
+      await sendWelcomeEmail(formData.name, formData.email, userType).catch(console.error);
 
       toast({
         title: "Registration Successful!",

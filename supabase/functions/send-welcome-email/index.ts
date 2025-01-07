@@ -1,74 +1,68 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
-import "https://deno.land/x/xhr@0.1.0/mod.ts"
-
-const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY')
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+import { Resend } from 'https://esm.sh/resend@1.0.0'
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 }
 
-interface EmailData {
-  name: string
-  email: string
-  userType: string
-}
-
 serve(async (req) => {
-  // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
-    return new Response(null, { headers: corsHeaders })
+    return new Response('ok', { headers: corsHeaders })
   }
 
   try {
-    console.log('Received request to send welcome email');
-    const { name, email, userType } = await req.json() as EmailData
-
-    console.log('Sending email to:', email);
-
-    const welcomeHtml = `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-        <h1 style="color: #333;">Welcome to YesSigh! 🎉</h1>
-        <p>Dear ${name},</p>
-        <p>Thank you for joining our pioneer program as a ${userType}. We're excited to have you on board!</p>
-        <p>As an early adopter, you're eligible for our special 50% discount until January 30th, 2025.</p>
-        <h2>What's Next?</h2>
-        <ul>
-          <li>Explore our features designed specifically for ${userType}s</li>
-          <li>Set up your profile</li>
-          <li>Connect with other members of our community</li>
-        </ul>
-        <p>If you have any questions, feel free to reach out to our support team.</p>
-        <p>Best regards,<br>The YesSigh Team</p>
-      </div>
-    `
-
-    const res = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${RESEND_API_KEY}`,
-      },
-      body: JSON.stringify({
-        from: 'YesSigh <onboarding@resend.dev>',
-        to: [email],
-        subject: 'Welcome to YesSigh - Your Journey Begins!',
-        html: welcomeHtml,
-      }),
-    })
-
-    const data = await res.json()
-    console.log('Resend API response:', data);
+    const { name, email, userType } = await req.json()
     
-    return new Response(JSON.stringify(data), {
-      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-      status: res.ok ? 200 : 400,
+    if (!email || !name) {
+      return new Response(
+        JSON.stringify({ error: 'Email and name are required' }),
+        { 
+          status: 400,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+        }
+      )
+    }
+
+    const resend = new Resend(Deno.env.get('RESEND_API_KEY'))
+
+    const { data, error: emailError } = await resend.emails.send({
+      from: 'YesSigh <onboarding@resend.dev>',
+      to: email,
+      subject: 'Welcome to YesSigh!',
+      html: `
+        <h1>Welcome to YesSigh, ${name}!</h1>
+        <p>Thank you for joining our pioneer program as a ${userType}.</p>
+        <p>We're excited to have you on board and look forward to supporting your journey in education and wellbeing.</p>
+        <p>Our team will be in touch shortly with next steps.</p>
+        <br/>
+        <p>Best regards,</p>
+        <p>The YesSigh Team</p>
+      `
     })
+
+    if (emailError) {
+      console.error('Resend API error:', emailError)
+      throw emailError
+    }
+
+    return new Response(
+      JSON.stringify({ message: 'Welcome email sent successfully' }),
+      { 
+        status: 200,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+      }
+    )
+
   } catch (error) {
-    console.error('Error sending welcome email:', error)
-    return new Response(JSON.stringify({ error: error.message }), {
-      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-      status: 500,
-    })
+    console.error('Error in send-welcome-email function:', error)
+    return new Response(
+      JSON.stringify({ error: 'Failed to send welcome email' }),
+      { 
+        status: 500,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+      }
+    )
   }
 })
