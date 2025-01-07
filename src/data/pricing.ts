@@ -63,7 +63,7 @@ export const schoolPlans: PricingTier[] = [
 export const additionalPlans: PricingTier[] = [
   {
     name: "Individual Teacher Plan",
-    price: 10,
+    price: 5,
     idealFor: "Individual teachers needing platform access",
     description: "Affordable package with core functionality for single classroom use - special pioneer pricing",
     features: [
