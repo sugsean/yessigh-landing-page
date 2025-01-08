@@ -7,6 +7,7 @@ import { Pricing } from "@/components/landing/Pricing";
 import { Footer } from "@/components/landing/Footer";
 import { SocialImpact } from "@/components/landing/SocialImpact";
 import { InterfaceShowcase } from "@/components/landing/InterfaceShowcase";
+import { FinancialProjectionsDialog } from "@/components/landing/FinancialProjectionsDialog";
 
 const Index = () => {
   return (
@@ -20,6 +21,7 @@ const Index = () => {
       <SocialImpact />
       <Pricing />
       <Footer />
+      <FinancialProjectionsDialog />
     </div>
   );
 };
