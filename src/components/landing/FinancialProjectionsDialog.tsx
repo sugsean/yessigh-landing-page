@@ -31,7 +31,7 @@ export const FinancialProjectionsDialog = () => {
               <path d="M12 3v18" />
               <path d="M3 12h18" />
             </svg>
-            View Financial Projections
+            View Financial Projections & Key Metrics
           </Button>
         </DialogTrigger>
         <DialogContent className="max-w-[90vw] max-h-[90vh] overflow-y-auto">
